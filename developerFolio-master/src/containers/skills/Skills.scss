@@ -106,15 +106,62 @@
 }
 
 /* RESPONSIVE DESIGN: AUTO JADI 1 KOLUM BILA BUKA DEKAT HANDPHONE */
+/* ==========================================================================
+   RESPONSIVE DESIGN: AUTO ADJUST UNTUK LAPTOP, TABLET & HANDPHONE
+   ========================================================================== */
+
+// 1. Untuk skrin sederhana / Tablet / Laptop Kecil (Bawah 992px)
 @media (max-width: 992px) {
   .career-two-column-container {
     flex-direction: column;
     gap: 35px;
-  }
-  .career-graphic-column {
     width: 100%;
   }
+
+  .career-text-column {
+    width: 100%;
+    flex: none;
+  }
+
+  .career-graphic-column {
+    width: 100%;
+    flex: none;
+  }
+
   .soc-dashboard-vector-box {
     max-width: 400px;
+    width: 100%;
+  }
+}
+
+// 2. UNTUK SKRIN FON RASMI (Bawah 576px) - PENYELAMAT KOTAK TERPOTONG!
+@media (max-width: 576px) {
+  .career-header-div {
+    margin-bottom: 20px;
+    
+    .career-heading {
+      font-size: 1.8rem !important; // Kecilkan tajuk sikit kat phone supaya tak melimpah
+    }
+  }
+
+  .career-bullet-list {
+    padding-left: 15px; // Rapatkan margin list dekat phone
+
+    li {
+      font-size: 0.95rem !important; // Saiz teks yang ngam untuk mata membaca dekat phone
+      text-align: left; // Tukar dari justify ke left supaya layout fon tak renggang pelik
+      white-space: normal !important; 
+      word-break: break-word !important; // Paksa ayat panjang turun baris, tak tolak kotak!
+    }
+  }
+
+  .soc-dashboard-vector-box {
+    max-width: 280px; // Monitor dashboard SOC mengecil ikut lebar phone
+  }
+
+  // Paksa semua komponen chip butang (Wireshark, dsb) and kotak kekal dalam sempadan
+  div, section, ul, li, a {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
