@@ -29,3 +29,35 @@
 .software-skill-inline > i:hover ~ p {
   color: $skillsColor;
 }
+
+/* 1. Paksa bar kemahiran and kad container mengecil ikut lebar skrin phone */
+.skills-container, .skills-main-div, .skills-bar, .skill-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;      /* Matikan paksaan lebar desktop */
+  flex-basis: 100% !important;
+  box-sizing: border-box !important;
+  padding: 10px !important;
+}
+
+/* 2. Paksa butang chip WIRESHARK, DIGITAL FORENSICS (Software Skills) turun bawah */
+.software-skills-list {
+  display: flex !important;
+  flex-wrap: wrap !important;   /* Paksa butang auto-jatuh ke baris baru kalau skrin sempit */
+  gap: 10px !important;
+  justify-content: center !important;
+}
+
+/* 3. Arahan Khas untuk Skrin Telefon (Bawah 768px) */
+@media screen and (max-width: 768px) {
+  /* Bagi teks bullet point rapat and masuk dalam kotak */
+  li, p, span, h1, h2, h3 {
+    white-space: normal !important;    /* Bagi teks patah turun bawah */
+    word-break: break-word !important; /* Potong perkataan panjang */
+  }
+
+  /* Betulkan susunan layout flexbox mamat salih tu supaya menegak kat phone */
+  .skills-main-div {
+    flex-direction: column !important; /* Laptop kiri-kanan, Phone atas-bawah */
+  }
+}
