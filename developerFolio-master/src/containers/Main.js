@@ -111,11 +111,15 @@ const LeadershipExperience = () => {
               </span>
             </div>
 
-            {/* Tajuk Utama */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "15px", marginBottom: "15px" }}>
-              <h3 style={{ fontSize: "1.35rem", fontWeight: "700", color: isDark ? "#ffffff" : "#0f172a", margin: "0", lineHeight: "1.4" }}>{item.title}</h3>
-              <span style={{ fontSize: "0.9rem", fontWeight: "700", color: "#64748b", whiteSpace: "nowrap" }}>{item.subtitle}</span>
-            </div>
+            {/* Tajuk Utama - VERSI BARU BIAR AUTO-TURUN BAWAH KAT PHONE */}
+<div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", gap: "6px", marginBottom: "15px", width: "100%" }}>
+  <h3 style={{ fontSize: "1.2rem", fontWeight: "700", color: isDark ? "#ffffff" : "#0f172a", margin: "0", lineHeight: "1.4", width: "100%", wordBreak: "break-word" }}>
+    {item.title}
+  </h3>
+  <span style={{ fontSize: "0.85rem", fontWeight: "700", color: "#64748b", display: "block", width: "100%" }}>
+    {item.subtitle}
+  </span>
+</div>
             
             <div style={{ height: "1px", background: isDark ? "#334155" : "#e2e8f0", marginBottom: "20px", opacity: 0.5 }}></div>
 
@@ -285,23 +289,25 @@ const Main = () => {
             
             <CyberSecurityBackground isDark={isDark} />
 
-            {/* TASK BAR ATAS */}
-            <div style={{ backgroundColor: isDark ? "#1d2433" : "#ffffff", borderBottom: "2px solid #e2e8f0", padding: "15px 20px", position: "sticky", top: 0, zIndex: 1000 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", maxWidth: "1200px", margin: "0 auto" }}>
-                <span style={{ fontWeight: "800", fontSize: "1.2rem", color: "#0d9488" }}>ANIS NADIA | PORTFOLIO</span>
+            {/* TASK BAR ATAS - VERSI MESRA PHONE TEGAK */}
+            <div style={{ backgroundColor: isDark ? "#1d2433" : "#ffffff", borderBottom: "2px solid #e2e8f0", padding: "15px 10px", position: "sticky", top: 0, zIndex: 1000, width: "100%" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center", width: "100%", maxWidth: "1200px", margin: "0 auto" }}>
+                <span style={{ fontWeight: "800", fontSize: "1.1rem", color: "#0d9488", textAlign: "center" }}>ANIS NADIA | PORTFOLIO</span>
                 
-                <div style={{ display: "flex", alignItems: "center", gap: "15px", flexWrap: "wrap" }}>
-                  <div style={{ display: "flex", gap: "8px" }}>
-                    <button onClick={() => handleTabChange("home")} style={btnStyle(activeTab === "home", isDark)}>Home</button>
-                    <button onClick={() => handleTabChange("career")} style={btnStyle(activeTab === "career", isDark)}>Career Exploration</button>
-                    <button onClick={() => handleTabChange("skills")} style={btnStyle(activeTab === "skills", isDark)}>Skills Assessment</button>
-                    <button onClick={() => handleTabChange("evidence")} style={btnStyle(activeTab === "evidence", isDark)}>Evidence of Learning</button>
-                    <button onClick={() => handleTabChange("reflection")} style={btnStyle(activeTab === "reflection", isDark)}>Reflection & Development Plan</button>
+                {/* Pembungkus Butang-Butang Menu Atas */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "10px", flexWrap: "wrap", width: "100%" }}>
+                  <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", justifyContent: "center", width: "100%" }}>
+                    <button onClick={() => handleTabChange("home")} style={{...btnStyle(activeTab === "home", isDark), flex: "1 1 auto", minWidth: "70px", padding: "6px 10px", fontSize: "0.8rem"}}>Home</button>
+                    <button onClick={() => handleTabChange("career")} style={{...btnStyle(activeTab === "career", isDark), flex: "1 1 auto", minWidth: "120px", padding: "6px 10px", fontSize: "0.8rem"}}>Career Exploration</button>
+                    <button onClick={() => handleTabChange("skills")} style={{...btnStyle(activeTab === "skills", isDark), flex: "1 1 auto", minWidth: "110px", padding: "6px 10px", fontSize: "0.8rem"}}>Skills Assessment</button>
+                    <button onClick={() => handleTabChange("evidence")} style={{...btnStyle(activeTab === "evidence", isDark), flex: "1 1 auto", minWidth: "120px", padding: "6px 10px", fontSize: "0.8rem"}}>Evidence of Learning</button>
+                    <button onClick={() => handleTabChange("reflection")} style={{...btnStyle(activeTab === "reflection", isDark), flex: "1 1 auto", minWidth: "150px", padding: "6px 10px", fontSize: "0.8rem"}}>Reflection & Dev Plan</button>
                   </div>
                   
-                  <div style={{ paddingLeft: "15px", borderLeft: "1px solid #cbd5e1", display: "flex", alignItems: "center" }}>
-                    <button onClick={changeTheme} style={{ background: isDark ? "#334155" : "#f1f5f9", border: isDark ? "1px solid #475569" : "1px solid #cbd5e1", borderRadius: "20px", padding: "6px 12px", cursor: "pointer", fontSize: "1.1rem" }}>
-                      {isDark ? "🌙" : "☀️"}
+                  {/* Butang Mod Malam */}
+                  <div style={{ marginTop: "5px", display: "flex", justifyContent: "center", width: "100%", borderTop: "1px solid #cbd5e1", paddingTop: "8px" }}>
+                    <button onClick={changeTheme} style={{ background: isDark ? "#334155" : "#f1f5f9", border: isDark ? "1px solid #475569" : "1px solid #cbd5e1", borderRadius: "20px", padding: "4px 16px", cursor: "pointer", fontSize: "1rem" }}>
+                      {isDark ? "🌙 Mode" : "☀️ Mode"}
                     </button>
                   </div>
                 </div>
@@ -337,7 +343,9 @@ const Main = () => {
               {activeTab === "reflection" && <Talks />}
             </div>
 
-            <Footer />
+            <div style={{ width: "100%", overflowX: "hidden", display: "flex", justifyContent: "center", alignItems: "center", padding: "20px 10px" }} className="responsive-footer-wrapper">
+              <Footer />
+            </div>
             <ScrollToTopButton />
           </div>
         )}
