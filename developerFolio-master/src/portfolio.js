@@ -16,7 +16,7 @@ const greeting = {
   username: "Anis Nadia",
   title: "ANIS NADIA BINTI MUHAMAD ZAMRIN",
   subTitle: "A first-class Bachelor of Computer Science (Computer Network Security) student with a solid background in Cyber Forensics. Passionate about network defense, proactive threat hunting, and technical automation, dedicated to safeguarding enterprise digital assets.",
-  resumeLink: "https://drive.google.com/file/d/1_EsmyU3yCmFBumFxLD1uQsYOttMdh6Kn/view?usp=sharing", // Hidupkan butang resume
+  resumeLink: "/resume.pdf", // Hidupkan butang resume
   displayGreeting: true 
 };
 
