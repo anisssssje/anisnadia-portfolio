@@ -7,12 +7,22 @@
   margin-bottom: 0px;
   margin-top: 0px;
   text-align: center;
+  
+  /* TAMBAHAN KEBANTAH: Paksa ikon/butang chip auto-turun baris baru kalau skrin sempit! */
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 10px !important;
 }
 
 .software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
+  /* TUKAR: Daripada inline-block, kita bagi dia flex and boleh mengecil */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-right: 10px;
   margin-bottom: 20px;
+  max-width: 100% !important;
 }
 
 .software-skill-inline > i {
@@ -22,42 +32,36 @@
 .software-skill-inline > i:hover {
   color: $skillsColor;
 }
+
 .software-skill-inline > p {
   color: $subTitle;
   font-size: 10px;
+  /* TAMBAHAN: Paksa teks panjang macam "Cisco Packet Tracer" untuk patah ke bawah */
+  white-space: normal !important;
+  word-break: break-word !important;
+  text-align: center;
 }
+
 .software-skill-inline > i:hover ~ p {
   color: $skillsColor;
 }
 
-/* 1. Paksa bar kemahiran and kad container mengecil ikut lebar skrin phone */
-.skills-container, .skills-main-div, .skills-bar, .skill-card {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0 !important;      /* Matikan paksaan lebar desktop */
-  flex-basis: 100% !important;
-  box-sizing: border-box !important;
-  padding: 10px !important;
-}
-
-/* 2. Paksa butang chip WIRESHARK, DIGITAL FORENSICS (Software Skills) turun bawah */
-.software-skills-list {
-  display: flex !important;
-  flex-wrap: wrap !important;   /* Paksa butang auto-jatuh ke baris baru kalau skrin sempit */
-  gap: 10px !important;
-  justify-content: center !important;
-}
-
-/* 3. Arahan Khas untuk Skrin Telefon (Bawah 768px) */
+/* ========================================================================
+   💥 ARAHAN KHAS UNTUK PHONE (MAKSIMUM 768PX) 
+   ======================================================================== */
 @media screen and (max-width: 768px) {
-  /* Bagi teks bullet point rapat and masuk dalam kotak */
-  li, p, span, h1, h2, h3 {
-    white-space: normal !important;    /* Bagi teks patah turun bawah */
-    word-break: break-word !important; /* Potong perkataan panjang */
+  /* Paksa kotak besar 'Security & Forensics' and list bullet point masuk sempadan */
+  div, section, ul, li {
+    max-width: 100% !important;
+    width: auto !important;
+    min-width: 0 !important;      /* Matikan paksaan kelebaran desktop */
+    box-sizing: border-box !important;
   }
 
-  /* Betulkan susunan layout flexbox mamat salih tu supaya menegak kat phone */
-  .skills-main-div {
-    flex-direction: column !important; /* Laptop kiri-kanan, Phone atas-bawah */
+  /* Paksa ayat list yang panjang gila tu patah ke bawah, tak tolak kotak ke kanan */
+  li, p, span {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
   }
 }
