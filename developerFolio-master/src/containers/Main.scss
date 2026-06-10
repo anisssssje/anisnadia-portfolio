@@ -114,3 +114,38 @@
   position: relative;
   z-index: 10;
 }
+
+// ==========================================================
+// 🚀 PAKSA SEMUA KAD KEMAS MASUK SKRIN PHONE (PORTRAIT)
+// ==========================================================
+@media (max-width: 768px) {
+  
+  // 1. Paksa semua kotak/kad dalam kandungan utama ambil lebar phone sahaja
+  .main-content-area div, 
+  .main-content-area section,
+  .main-content-area article {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  // 2. Sembuhkan ralat flex row (melintang) dalam tab Reflection & Skills
+  // Kita paksa susunan jadi column (menegak bertingkat) bila kat phone!
+  .main-content-area div[style*="display: flex"],
+  .main-content-area div[style*="display:flex"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  // 3. Kecilkan padding kad yang gergasi biar tak tolak dinding skrin phone
+  div[style*="padding: 40px"], div[style*="padding:40px"],
+  div[style*="padding: 30px"], div[style*="padding:30px"] {
+    padding: 15px !important;
+  }
+
+  // 4. Paksa teks tajuk/poin yang panjang gila untuk patah balik ke bawah
+  h1, h2, h3, h4, h5, p, span, li, button {
+    word-break: break-word !important;
+    white-space: normal !important;
+  }
+}
