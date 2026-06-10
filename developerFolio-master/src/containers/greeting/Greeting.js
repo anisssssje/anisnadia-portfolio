@@ -3,7 +3,6 @@ import { Fade } from "react-reveal";
 import emoji from "react-easy-emoji";
 import "./Greeting.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import Button from "../../components/button/Button";
 import { greeting } from "../../portfolio";
 import StyleContext from "../../contexts/StyleContext";
 import profileImg from "../../assets/images/profile.png"; 
@@ -31,16 +30,31 @@ export default function Greeting() {
               
               <SocialMedia />
               
-              {/* BUTTON ZONE: KINI HANYA BUTANG RESUME TUNGGAL YANG KEMAS */}
-              <div className="button-greeting-div">
+              {/* BUTTON ZONE: MENGGUNAKAN TAG <a> STANDARD UNTUK LINK EXTERNAL GOOGLE DRIVE */}
+              <div className="button-greeting-div" style={{ marginTop: "25px" }}>
                 {greeting.resumeLink && (
                   <a
-                    href={`${process.env.PUBLIC_URL}/resume.pdf`} // FIX: Menarik terus fail resume dari folder public (Gerenti Boleh Baca!)
+                    href={greeting.resumeLink} // Membaca terus link Google Drive dari portfolio.js!
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="download-link-button"
+                    style={{
+                      display: "inline-block",
+                      padding: "13px 28px",
+                      backgroundColor: "#0d9488", // Warna tema Teal Siber portfolio hang
+                      color: "#ffffff",
+                      textDecoration: "none",
+                      fontWeight: "700",
+                      borderRadius: "8px",
+                      textTransform: "uppercase",
+                      fontSize: "0.9rem",
+                      letterSpacing: "0.5px",
+                      boxShadow: "0 4px 10px rgba(13, 148, 136, 0.3)",
+                      transition: "all 0.2s ease-in-out"
+                    }}
+                    onMouseEnter={(e) => e.target.style.backgroundColor = "#0f766e"} // Efek hover gelap sikit
+                    onMouseLeave={(e) => e.target.style.backgroundColor = "#0d9488"}
                   >
-                    <Button text="Download my resume" />
+                    Download My Resume
                   </a>
                 )}
               </div>
