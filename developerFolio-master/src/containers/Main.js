@@ -91,18 +91,19 @@ const LeadershipExperience = () => {
   key={index} 
   className={isDark ? "cert-premium-card dark" : "cert-premium-card"} // <-- Kita guna kelas penuh portfolio hang
   style={{ 
-    background: isDark ? "#171c28" : "#ffffff", 
-    borderRadius: "14px", 
-    // Kita buang terus baris "border: ..." di sini supaya dia tak sekat efek SCSS!
-    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.02)", 
-    padding: "40px", 
-    textAlign: "left",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    transition: "all 0.3s ease-in-out",
-    cursor: "pointer"
-  }}
+  background: isDark ? "#171c28" : "#ffffff", 
+  borderRadius: "14px", 
+  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.02)", 
+  padding: "20px", /* Kecilkan padding dari 40px ke 20px supaya muat skrin phone */
+  textAlign: "left",
+  width: "100%",
+  maxWidth: "100%", /* Paksa kad tidak boleh lebih lebar dari phone */
+  boxSizing: "border-box", /* Elakkan padding tolak dinding kad keluar */
+  display: "flex",
+  flexDirection: "column",
+  transition: "all 0.3s ease-in-out",
+  cursor: "pointer"
+}}
 >
             {/* Tag Lencana Kecil Di Atas */}
             <div style={{ marginBottom: "12px" }}>
@@ -315,7 +316,7 @@ const Main = () => {
             </div>
 
             {/* KANDUNGAN UTAMA */}
-            <div className="main-content-area" style={{ maxWidth: "1200px", margin: "30px auto", padding: "0 20px", minHeight: "60vh" }}>
+            <div className="main-content-area" style={{ width: "100%", maxWidth: "1200px", margin: "30px auto", padding: "0 15px", boxSizing: "border-box", minHeight: "60vh", overflowX: "hidden" }}>
               {activeTab === "home" && (
                 <div>
                   <Greeting />
