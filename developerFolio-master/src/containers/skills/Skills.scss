@@ -135,28 +135,47 @@
 }
 
 // 2. UNTUK SKRIN FON RASMI (Bawah 576px) - PENYELAMAT KOTAK TERPOTONG!
+/* ==========================================================================
+   KOD PENYELAMAT KHAS UNTUK KOTAK SKILLS ASSESSMENT (ANIS NADIA PORTFOLIO)
+   ========================================================================== */
 @media screen and (max-width: 768px) {
-  /* 1. Paksa kotak luaran and dalaman jangan melimpah */
-  div, section, main, article {
-    max-width: 100% !important;
-    width: auto !important;
-    min-width: 0 !important;   /* Ini untuk matikan min-width tegar mamat salih tu! */
-    flex-shrink: 1 !important;  /* Paksa kotak untuk boleh mengecil! */
-    box-sizing: border-box !important;
-  }
-
-  /* 2. Betulkan bahagian teks list yang tolak kotak tu ke kanan */
-  li, p, span, h1, h2, h3 {
-    white-space: normal !important;    /* Paksa teks turun bawah, jangan sebaris! */
-    word-break: break-word !important; /* Kalau perkataan panjang gila, potong bagi turun */
-    overflow-wrap: break-word !important;
-    max-width: 100% !important;
-  }
-
-  /* 3. Betulkan butang-butang chip WIRESHARK, DIGITAL FORENSICS tu */
-  /* Ganti '.software-skills-list' dengan nama kelas kontainer butang tu kalau hang jumpa */
-  .software-skills-list, ul {
+  /* 1. Paksa kontainer besar skills Assessment untuk fit skrin phone */
+  .skills-main-div {
     display: flex !important;
-    flex-wrap: wrap !important; /* Paksa butang-butang tu auto-turun baris baru kalau dah penuh! */
+    flex-direction: column !important; /* Paksa gambar and text tersusun menegak */
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px !important;
+    overflow: hidden !important;
+  }
+
+  /* 2. Paksa bahagian text and list sebelah kanan/bawah masuk sempadan */
+  .skills-text-div {
+    width: 100% !important;
+    min-width: 0 !important; /* Matikan paksaan lebar desktop mamat salih tu */
+    max-width: 100% !important;
+  }
+
+  /* 3. Paksa tajuk besar 'Personal Skills Assessment' mengecil and tak tolak kotak */
+  .skills-heading {
+    font-size: 30px !important; /* Kecilkan saiz tulisan kat phone */
+    line-height: 1.2 !important;
+    word-break: break-word !important;
+  }
+
+  /* 4. Paksa bullet point text untuk patah baris ke bawah, jangan straight sebaris */
+  .subTitle.skills-text {
+    font-size: 16px !important;
+    width: 100% !important;
+    white-space: normal !important; /* Paksa teks turun bawah */
+    word-break: break-word !important; /* Potong ayat panjang bagi muat skrin */
+  }
+
+  /* 5. Paksa senarai butang WIRESHARK, DIGITAL FORENSICS wrap ke bawah */
+  .software-skills-main-div {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important; /* Butang auto-turun baris baru kalau penuh */
+    justify-content: center !important;
   }
 }
