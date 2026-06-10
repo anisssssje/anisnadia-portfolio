@@ -135,33 +135,28 @@
 }
 
 // 2. UNTUK SKRIN FON RASMI (Bawah 576px) - PENYELAMAT KOTAK TERPOTONG!
-@media (max-width: 576px) {
-  .career-header-div {
-    margin-bottom: 20px;
-    
-    .career-heading {
-      font-size: 1.8rem !important; // Kecilkan tajuk sikit kat phone supaya tak melimpah
-    }
-  }
-
-  .career-bullet-list {
-    padding-left: 15px; // Rapatkan margin list dekat phone
-
-    li {
-      font-size: 0.95rem !important; // Saiz teks yang ngam untuk mata membaca dekat phone
-      text-align: left; // Tukar dari justify ke left supaya layout fon tak renggang pelik
-      white-space: normal !important; 
-      word-break: break-word !important; // Paksa ayat panjang turun baris, tak tolak kotak!
-    }
-  }
-
-  .soc-dashboard-vector-box {
-    max-width: 280px; // Monitor dashboard SOC mengecil ikut lebar phone
-  }
-
-  // Paksa semua komponen chip butang (Wireshark, dsb) and kotak kekal dalam sempadan
-  div, section, ul, li, a {
+@media screen and (max-width: 768px) {
+  /* 1. Paksa kotak luaran and dalaman jangan melimpah */
+  div, section, main, article {
     max-width: 100% !important;
+    width: auto !important;
+    min-width: 0 !important;   /* Ini untuk matikan min-width tegar mamat salih tu! */
+    flex-shrink: 1 !important;  /* Paksa kotak untuk boleh mengecil! */
     box-sizing: border-box !important;
+  }
+
+  /* 2. Betulkan bahagian teks list yang tolak kotak tu ke kanan */
+  li, p, span, h1, h2, h3 {
+    white-space: normal !important;    /* Paksa teks turun bawah, jangan sebaris! */
+    word-break: break-word !important; /* Kalau perkataan panjang gila, potong bagi turun */
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+
+  /* 3. Betulkan butang-butang chip WIRESHARK, DIGITAL FORENSICS tu */
+  /* Ganti '.software-skills-list' dengan nama kelas kontainer butang tu kalau hang jumpa */
+  .software-skills-list, ul {
+    display: flex !important;
+    flex-wrap: wrap !important; /* Paksa butang-butang tu auto-turun baris baru kalau dah penuh! */
   }
 }
