@@ -167,19 +167,22 @@ const EvidenceOfLearning = ({ isDark }) => {
 
   return (
     <div style={{ width: "100%" }}>
-      {/* Menu Sub-Tab Atas */}
+      {/* Menu Sub-Tab Atas - KITA DAH RESPONSIVEKAN GUNA FLEX KEMAS */}
       <div style={{ 
         display: "flex", 
+        flexDirection: "row",
+        flexWrap: "wrap", /* Paksa butang melompat ke bawah kalau skrin sempit */
         gap: "10px", 
+        justifyContent: "flex-start", /* Rapat kiri dekat laptop, kemas dekat phone */
         marginBottom: "30px", 
         borderBottom: `2px solid ${isDark ? "#334155" : "#e2e8f0"}`,
         paddingBottom: "10px",
-        flexWrap: "wrap"
+        width: "100%"
       }}>
-        <button onClick={() => setSubTab("industrial")} style={subBtnStyle(subTab === "industrial", isDark)}>Sub-section 1: Industrial Experience</button>
-        <button onClick={() => setSubTab("academic")} style={subBtnStyle(subTab === "academic", isDark)}>Sub-section 2: Academic Projects</button>
-        <button onClick={() => setSubTab("certs")} style={subBtnStyle(subTab === "certs", isDark)}>Sub-section 3: Certifications & Trainings</button>
-        <button onClick={() => setSubTab("leadership")} style={subBtnStyle(subTab === "leadership", isDark)}>Sub-section 4: Leadership & Activities</button>
+        <button onClick={() => setSubTab("industrial")} style={{ ...subBtnStyle(subTab === "industrial", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 1: Industrial Experience</button>
+        <button onClick={() => setSubTab("academic")} style={{ ...subBtnStyle(subTab === "academic", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 2: Academic Projects</button>
+        <button onClick={() => setSubTab("certs")} style={{ ...subBtnStyle(subTab === "certs", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 3: Certifications & Trainings</button>
+        <button onClick={() => setSubTab("leadership")} style={{ ...subBtnStyle(subTab === "leadership", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 4: Leadership & Activities</button>
       </div>
 
       {/* Paparan Kandungan Mengikut Sub-Tab */}
