@@ -59,26 +59,27 @@ export default function SkillsAssessment() {
   ];
 
   return (
-  <div className="skills-assessment-main-wrapper" style={{ width: "100%", padding: "10px 0" }}>
-    <Fade bottom duration={1000}>
-      
-      {/* JARAK DIBAIK PULIH KEPADA 55px SUPAYA TIADA PELANGGARAN KAD */}
-      <div style={{ marginBottom: "55px", textAlign: "left", width: "100%" }}>
-        <h2 style={{ fontSize: "2.5rem", fontWeight: "700", color: "#0d9488", margin: "0 0 10px 0", lineHeight: "1.2" }}>
-          Personal Skills Assessment
-        </h2>
-        <p style={{ fontSize: "1.1rem", color: "#64748b", margin: "0 0 15px 0", lineHeight: "1.5" }}>
-          A critical self-evaluation of current competencies against enterprise security requirements.
-        </p>
-      </div>
+    <div className="skills-assessment-main-wrapper" style={{ width: "100%", padding: "10px 15px", boxSizing: "border-box" }}>
+      <Fade bottom duration={1000}>
+        
+        {/* RESPONSIVE HEADING & SUBTITLE */}
+        <div style={{ marginBottom: "35px", textAlign: "left", width: "100%" }}>
+          <h2 style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", margin: "0 0 10px 0", lineHeight: "1.2" }}>
+            Personal Skills Assessment
+          </h2>
+          <p style={{ fontSize: "1rem", color: "#64748b", margin: "0 0 15px 0", lineHeight: "1.5" }}>
+            A critical self-evaluation of current competencies against enterprise security requirements.
+          </p>
+        </div>
 
-        {/* 🎴 GRID 4 KAD UTAMA DENGAN WARNA WARNI SIBER PREMIUM */}
+        {/* 🎴 GRID 4 KAD UTAMA - Saiz minmax ditukar ke 280px supaya muat skrin phone! */}
         <div style={{ 
           display: "grid", 
-          gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))", 
-          gap: "30px", 
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", 
+          gap: "20px", 
           width: "100%",
-          marginBottom: "45px" 
+          marginBottom: "45px",
+          boxSizing: "border-box"
         }}>
           {assessmentCards.map((card, index) => (
             <div 
@@ -87,45 +88,56 @@ export default function SkillsAssessment() {
                 background: isDark ? "#171c28" : "#ffffff", 
                 borderRadius: "14px", 
                 border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`, 
-                borderTop: `6px solid ${card.borderColor}`, // Garis atas tebal ikut warna tema kad
+                borderTop: `6px solid ${card.borderColor}`, 
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.04)",
-                padding: "30px",
+                padding: "20px", // Dikurangkan sikit dari 30px supaya muat skrin kecik
                 textAlign: "left",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "between"
+                justifyContent: "space-between",
+                boxSizing: "border-box",
+                width: "100%"
               }}
             >
               <div>
-                <h3 style={{ fontSize: "1.4rem", fontWeight: "700", color: card.textColor, marginTop: 0, marginBottom: "20px" }}>
+                <h3 style={{ fontSize: "1.25rem", fontWeight: "700", color: card.textColor, marginTop: 0, marginBottom: "15px" }}>
                   {card.title}
                 </h3>
-                <div style={{ height: "1px", background: isDark ? "#334155" : "#e2e8f0", marginBottom: "20px" }}></div>
+                <div style={{ height: "1px", background: isDark ? "#334155" : "#e2e8f0", marginBottom: "15px" }}></div>
                 
-                <ul style={{ paddingLeft: "18px", margin: "0 0 30px 0" }}>
+                <ul style={{ paddingLeft: "18px", margin: "0 0 25px 0", width: "100%", boxSizing: "border-box" }}>
                   {card.points.map((point, i) => (
-                    <li key={i} style={{ fontSize: "1.02rem", color: isDark ? "#cbd5e1" : "#475569", lineHeight: "1.6", marginBottom: "12px", listStyleType: "square" }}>
+                    <li key={i} style={{ 
+                      fontSize: "0.95rem", 
+                      color: isDark ? "#cbd5e1" : "#475569", 
+                      lineHeight: "1.5", 
+                      marginBottom: "10px", 
+                      listStyleType: "square",
+                      wordBreak: "break-word",
+                      whiteSpace: "normal"
+                    }}>
                       {point}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* 🏷️ PENGGUNAAN BOX BADGES YANG SENADA DENGAN WARNA THEME KAD */}
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "auto" }}>
+              {/* 🏷️ BADGES CHIP - Ditambah gap yang fleksibel */}
+              <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "auto", width: "100%" }}>
                 {card.tags.map((tag, tagIndex) => (
                   <span 
                     key={tagIndex}
                     style={{ 
-                      fontSize: "0.78rem", 
+                      fontSize: "0.72rem", 
                       fontWeight: "700", 
                       color: card.textColor, 
                       background: card.bgColor, 
                       border: `1px solid ${card.borderColor}`, 
-                      padding: "6px 12px", 
+                      padding: "4px 8px", 
                       borderRadius: "6px",
                       textTransform: "uppercase",
-                      letterSpacing: "0.5px"
+                      letterSpacing: "0.5px",
+                      wordBreak: "break-word"
                     }}
                   >
                     {tag}
@@ -136,40 +148,56 @@ export default function SkillsAssessment() {
           ))}
         </div>
 
-        {/* 📊 BAHAHIAN BOTTOM: INDUSTRY COMPARISON & ACTION PLAN */}
+        {/* 📊 BAHAGIAN BOTTOM: INDUSTRY COMPARISON & ACTION PLAN (Dibaiki Grid Kelebaran) */}
         <div style={{ 
           background: isDark ? "#171c28" : "#ffffff", 
           borderRadius: "14px", 
           border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`, 
-          padding: "35px",
-          textAlign: "left"
+          padding: "25px",
+          textAlign: "left",
+          width: "100%",
+          boxSizing: "border-box"
         }}>
-          <h3 style={{ fontSize: "1.6rem", fontWeight: "700", color: "#0d9488", marginTop: 0, marginBottom: "25px" }}>
+          <h3 style={{ fontSize: "1.4rem", fontWeight: "700", color: "#0d9488", marginTop: 0, marginBottom: "20px" }}>
             Industry Comparison & Action Plan
           </h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))", gap: "40px" }}>
-            <div>
-              <h4 style={{ fontSize: "1.1rem", fontWeight: "700", color: isDark ? "#ffffff" : "#1e293b", marginBottom: "15px" }}>
+          <div style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", 
+            gap: "25px",
+            width: "100%"
+          }}>
+            <div style={{ width: "100%", boxSizing: "border-box" }}>
+              <h4 style={{ fontSize: "1.05rem", fontWeight: "700", color: isDark ? "#ffffff" : "#1e293b", marginBottom: "12px" }}>
                 Industry Requirements for SOC Analysts
               </h4>
               <ul style={{ paddingLeft: "15px", margin: 0 }}>
-                <li style={{ fontSize: "0.98rem", color: isDark ? "#cbd5e1" : "#475569", marginBottom: "10px", lineHeight: "1.5" }}>
+                <li style={{ fontSize: "0.92rem", color: isDark ? "#cbd5e1" : "#475569", marginBottom: "8px", lineHeight: "1.5" }}>
                   Demand hands-on familiarity with Enterprise SIEM platforms (Splunk / IBM QRadar).
                 </li>
-                <li style={{ fontSize: "0.98rem", color: isDark ? "#cbd5e1" : "#475569", marginBottom: 0, lineHeight: "1.5" }}>
+                <li style={{ fontSize: "0.92rem", color: isDark ? "#cbd5e1" : "#475569", marginBottom: 0, lineHeight: "1.5" }}>
                   Require rapid incident containment and structured cloud-centric security operations.
                 </li>
               </ul>
             </div>
-            <div style={{ borderLeft: isDark ? "1px solid #334155" : "1px solid #e2e8f0", paddingLeft: "40px" }}>
-              <h4 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0d9488", marginBottom: "15px" }}>
+            
+            {/* Menggunakan padding and border yang responsif supaya tidak pecah di mobile */}
+            <div style={{ 
+              borderLeft: window.innerWidth > 768 ? (isDark ? "1px solid #334155" : "1px solid #e2e8f0") : "none", 
+              borderTop: window.innerWidth <= 768 ? (isDark ? "1px solid #334155" : "1px solid #e2e8f0") : "none",
+              paddingLeft: window.innerWidth > 768 ? "30px" : "0px",
+              paddingTop: window.innerWidth <= 768 ? "20px" : "0px",
+              width: "100%",
+              boxSizing: "border-box"
+            }}>
+              <h4 style={{ fontSize: "1.05rem", fontWeight: "700", color: "#0d9488", marginBottom: "12px" }}>
                 My Strategic Alignment & Mitigation Plan
               </h4>
               <ul style={{ paddingLeft: "15px", margin: 0 }}>
-                <li style={{ fontSize: "0.98rem", color: isDark ? "#cbd5e1" : "#475569", marginBottom: "10px", lineHeight: "1.5" }}>
+                <li style={{ fontSize: "0.92rem", color: isDark ? "#cbd5e1" : "#475569", marginBottom: "8px", lineHeight: "1.5" }}>
                   <strong>The Gap:</strong> Deep infrastructure defense skills, but need closer alignment with cloud security architecture.
                 </li>
-                <li style={{ fontSize: "0.98rem", color: isDark ? "#cbd5e1" : "#475569", marginBottom: 0, lineHeight: "1.5" }}>
+                <li style={{ fontSize: "0.92rem", color: isDark ? "#cbd5e1" : "#475569", marginBottom: 0, lineHeight: "1.5" }}>
                   <strong>Action Plan:</strong> Currently undertaking CCNA training (2025) and preparing for the CompTIA Security+ track.
                 </li>
               </ul>
