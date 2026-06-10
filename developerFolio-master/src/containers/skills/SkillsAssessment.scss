@@ -24,36 +24,33 @@
 }
 
 /* RESPONSIVE DESIGN UNTUK TELEFON */
-@media (max-width: 768px) {
-  .skills-assessment-main-wrapper h2 {
-    font-size: 2rem !important;
-  }
-}
-
-/* ==========================================================================
-   🔥 KOD TAMBAHAN: PAKSA KOTAK NEON BERTINGKAT KAT PHONE (DESIGN KEKAL SAMA)
-   ========================================================================== */
-@media (max-width: 992px) {
-  // 1. Cari pembungkus 4 kotak neon tu secara automatik and susun menegak
-  .skills-assessment-main-wrapper div[style*="display: flex"],
-  .skills-assessment-main-wrapper div[style*="display:flex"] {
-    flex-direction: column !important; /* Paksa kotak bertingkat ke bawah! */
-    align-items: stretch !important;
-    gap: 25px !important; /* Jarakkan sikit antara kotak atas and bawah */
+@media screen and (max-width: 768px) {
+  // 1. Paksa kotak kad 'Security & Forensics' menguncup ikut lebar phone
+  .skill-bar, [class*="skill-bar"], div[class*="card"] {
     width: 100% !important;
-  }
-
-  // 2. Paksa setiap kotak individu ambil lebar penuh skrin phone
-  .skills-assessment-main-wrapper div[style*="width:"] {
-    width: 100% !important;
+    min-width: 0 !important;   // Matikan paksaan lebar desktop tegar
     max-width: 100% !important;
+    flex-basis: 100% !important;
+    padding: 12px !important;
     box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
-  // 3. Pastikan senarai butang tag (Wireshark, dll) di dalam kotak tak melimpah
-  .skills-assessment-main-wrapper button,
-  .skills-assessment-main-wrapper div[style*="flex-wrap"] {
-    white-space: normal !important;
-    word-break: break-word !important;
+  // 2. Paksa teks bullet point dalam list untuk auto-turun baris, jangan melimpah
+  ul, li, p, span {
+    width: 100% !important;
+    white-space: normal !important;   // Paksa ayat panjang turun bawah
+    word-break: break-word !important; // Potong perkataan kalau terkeluar skrin
+    overflow-wrap: break-word !important;
   }
+
+  // 3. Paksa butang chip WIRESHARK, DIGITAL FORENSICS wrap dengan kemas ke bawah
+  [class*="software-skills"], .software-skills-main-div {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important; // Auto-turun baris baru bila skrin phone sempit
+    gap: 8px !important;
+  }
+
 }
