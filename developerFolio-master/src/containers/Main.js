@@ -315,7 +315,7 @@ const Main = () => {
               </div>
             </div>
 
-            {/* KANDUNGAN UTAMA */}
+            {/* KANDUNGAN UTAMA - EDISI RESPONSIVE OVERRIDE GLOBAL */}
             <div className="main-content-area" style={{ width: "100%", maxWidth: "1200px", margin: "30px auto", padding: "0 15px", boxSizing: "border-box", minHeight: "60vh", overflowX: "hidden" }}>
               {activeTab === "home" && (
                 <div>
@@ -338,10 +338,11 @@ const Main = () => {
                 </div>
               )}
 
-              {activeTab === "career" && <Skills />}
-              {activeTab === "skills" && <SkillsAssessment />}
-              {activeTab === "evidence" && <EvidenceOfLearning isDark={isDark} />}
-              {activeTab === "reflection" && <Talks />}
+              {/* KITA BUNGKUS TAB BERMASALAH DENGAN DIV KAWALAN OVERFLOW AGAR AUTO-KEMAS KAT PHONE */}
+              {activeTab === "career" && <div style={{ width: "100%", maxWidth: "100%", overflowX: "hidden" }}><Skills /></div>}
+              {activeTab === "skills" && <div style={{ width: "100%", maxWidth: "100%", overflowX: "hidden" }}><SkillsAssessment /></div>}
+              {activeTab === "evidence" && <div style={{ width: "100%", maxWidth: "100%", overflowX: "hidden" }}><EvidenceOfLearning isDark={isDark} /></div>}
+              {activeTab === "reflection" && <div style={{ width: "100%", maxWidth: "100%", overflowX: "hidden" }}><Talks /></div>}
             </div>
 
             <div style={{ width: "100%", overflowX: "hidden", display: "flex", justifyContent: "center", alignItems: "center", padding: "20px 10px" }} className="responsive-footer-wrapper">
