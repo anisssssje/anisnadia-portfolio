@@ -1,0 +1,31 @@
+/* ==========================================================================
+   🏛️ PERSONAL SKILLS ASSESSMENT STYLE SHEET
+   ========================================================================== */
+
+.skills-assessment-main-wrapper {
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* 📐 FIX MUTLAK: MENGALANG TAJUK BESAR & SUB-HEADER BERTINDIH BILA MINIMIZE SCREEN */
+.skills-assessment-main-wrapper h2 {
+  font-size: 2.5rem !important;
+  font-weight: 700;
+  color: #0d9488;
+  margin: 0 0 10px 0 !important;
+  line-height: 1.2 !important; // Memberi ruang anjakan jika tajuk pecah 2 baris waktu skrin kecil
+}
+
+.skills-assessment-main-wrapper p {
+  font-size: 1.1rem;
+  line-height: 1.5 !important;
+  color: #64748b;
+  margin: 0 0 40px 0 !important; // Tolak grid 4 kad di bawah ke jarak selamat yang sangat kemas!
+}
+
+/* RESPONSIVE DESIGN UNTUK TELEFON */
+@media (max-width: 768px) {
+  .skills-assessment-main-wrapper h2 {
+    font-size: 2rem !important;
+  }
+}

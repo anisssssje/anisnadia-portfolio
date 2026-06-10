@@ -1,0 +1,144 @@
+@import "../../_globalColor";
+
+.certs-section-main {
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* FIX: MENGALANG BERTINDIH BILA SCREEN MINIMIZE */
+.certs-header-div {
+  margin-bottom: 45px;
+  text-align: left;
+
+  h2 {
+    font-size: 2.5rem !important;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 10px 0 !important;
+    line-height: 1.2 !important;
+    &.dark-mode { color: #ffffff !important; }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5 !important;
+    &.dark-sub { color: #94a3b8; }
+  }
+}
+
+/* GRID GRID 3 KOLUM */
+.certs-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+.cert-premium-card {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: #0d9488;
+    box-shadow: 0 12px 20px -5px rgba(13, 148, 136, 0.12);
+  }
+
+  &.dark {
+    background: #171c28;
+    border-color: #334155;
+    box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.cert-card-body {
+  padding: 25px 25px 15px 25px;
+  text-align: left;
+}
+
+.cert-badge-tag {
+  display: inline-block;
+  background: rgba(13, 148, 136, 0.08);
+  color: #0d9488;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+.dark .cert-badge-tag {
+  background: rgba(13, 148, 136, 0.15);
+}
+
+.cert-card-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+  min-height: 50px; // Kekalkan keselarasan barisan kad
+}
+.dark .cert-card-title { color: #ffffff; }
+
+.cert-card-desc {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+}
+.dark .cert-card-desc { color: #cbd5e1; }
+
+/* 🖼️ TIMAL BINGKAI SIJIL: KEBAL RALAT TERPOTONG */
+.cert-image-wrapper {
+  padding: 0 25px 25px 25px;
+  margin-top: auto;
+}
+
+.cert-frame-holder {
+  width: 100%;
+  height: 210px; // Ketinggian paling ngam and ideal untuk pelbagai dimensi sijil
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc; // Latar belakang ambient cerah yang sangat bersih
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dark .cert-frame-holder {
+  border-color: #334155;
+  background: #0f141c; // Gelap siber waktu malam
+}
+
+.actual-cert-img-element {
+  width: 100%;
+  height: 100%;
+  
+  /* PENGUNCIAN UTAMA: Sijil menegak atau mendatar auto-keluar PENNUH tanpa potong! */
+  object-fit: contain; 
+  padding: 6px; // Beri sedikit margin bernafas di dalam frame
+  
+  transition: transform 0.25s ease;
+}
+
+.cert-premium-card:hover .actual-cert-img-element {
+  transform: scale(1.02);
+}
+
+/* Responsif Telefon */
+@media (max-width: 768px) {
+  .certs-header-div h2 { font-size: 2rem !important; }
+  .cert-frame-holder { height: 180px; }
+}

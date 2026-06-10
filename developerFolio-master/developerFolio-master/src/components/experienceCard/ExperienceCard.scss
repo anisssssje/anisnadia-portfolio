@@ -1,0 +1,154 @@
+.central-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  margin: 30px auto;
+  max-width: 750px; // Mengecilkan saiz lebar kad supaya nampak padat macam kad sijil
+  overflow: visible; // Membenarkan bulatan terkeluar separuh dengan kemas
+  position: relative;
+  text-align: center;
+
+  &.experience-card-dark {
+    background: #171c28;
+    border-color: #334155;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* KOTAK HEADER ATAS TURQUOISE PUDAR (SEBIJIK GAMBAR KEDUA USER) */
+.central-card-header {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(13, 148, 136, 0.05) 100%);
+  padding: 35px 20px 45px 20px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border-bottom: 1px solid rgba(13, 148, 136, 0.1);
+}
+
+.central-company-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0d9488;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* POSISI BULATAN LOGO DI TENGAH SECARA TERAPUNG BALANCED */
+.central-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -40px; // Tarik naik ke atas sebanyak separuh bulatan
+  position: relative;
+  z-index: 5;
+}
+
+.central-logo-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-mode .central-logo-circle {
+  background: #171c28;
+  border-color: #0d9488;
+}
+
+.central-inner-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  opacity: 0.7;
+}
+
+/* BODY KANDUNGAN MAKLUMAT */
+.central-card-body {
+  padding: 30px;
+}
+
+.central-role {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 5px 0;
+  
+  &-dark {
+    @extend .central-role;
+    color: #ffffff;
+  }
+}
+
+.central-duration {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #64748b;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.central-desc {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  
+  &-dark {
+    @extend .central-desc;
+    color: #94a3b8;
+  }
+}
+
+.central-bullet-list {
+  display: inline-block;
+  text-align: left;
+  padding-left: 20px;
+  margin: 0 0 25px 0;
+  
+  li {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    list-style-type: disc;
+    
+    &.dark-bullet {
+      color: #cbd5e1;
+    }
+  }
+}
+
+/* GRAPHIC AREA: SUSUNAN KHAS BILA GAMBAR PROJEK DIMASUKKAN */
+.internship-project-gallery {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px dashed rgba(13, 148, 136, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.intern-proof-img {
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .intern-proof-img {
+  border-color: #334155;
+}
+
+.image-caption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #64748b;
+}

@@ -1,0 +1,120 @@
+@import "../../_globalColor";
+
+.career-exploration-main {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.career-header-div {
+  margin-bottom: 35px;
+  text-align: left;
+
+  .career-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 5px;
+    &.dark-mode { color: #ffffff; }
+  }
+
+  .career-target-role {
+    font-size: 1.15rem;
+    color: #0d9488; // Warna teal menyala untuk memancing mata pensyarah
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* WADAH UTAMA SISTEM INTERAKTIF 2 KOLUM */
+.career-two-column-container {
+  display: flex;
+  flex-direction: row; 
+  gap: 40px; // Rapatkan sikit jurang pemisah supaya monitor and orang muat cun
+  align-items: center; 
+  width: 100%;
+}
+
+/* KOLUM KIRI: TEKS POINTS */
+.career-text-column {
+  flex: 1.1; // Seimbangkan ruang teks points
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: left;
+}
+
+.career-category-group {
+  .category-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+    &.dark-mode { color: #ffffff; }
+  }
+}
+
+.career-bullet-list {
+  padding-left: 20px;
+  margin: 0;
+
+  li {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+    list-style-type: square; // Guna bullet petak siber rasmi
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: #0d9488; // Naikkan warna tajuk kecil poin biar garang
+    }
+  }
+}
+
+.dark-mode .career-bullet-list li {
+  color: #cbd5e1;
+}
+
+/* KOLUM KANAN: GRAFIK MONITORING DASHBOARD SOC */
+.career-graphic-column {
+  flex: 0.9; // Besarkan ruang kolum kanan daripada 0.8 ke 0.9 untuk tampung orang + monitor besar!
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.soc-dashboard-vector-box {
+  width: 100%;
+  max-width: 540px; // Dinaikkan saiz had maksimum daripada 480px ke 540px biar melesat besar!
+  filter: drop-shadow(0 20px 35px rgba(13, 148, 136, 0.14));
+}
+
+/* Animasi denyutan merah live threat monitoring */
+.pulse-dot {
+  animation: siberPulse 1.8s infinite;
+  transform-origin: center;
+}
+
+@keyframes siberPulse {
+  0% { opacity: 0.2; r: 2.5px; }
+  50% { opacity: 1; r: 5.5px; fill: #ef4444; }
+  100% { opacity: 0.2; r: 2.5px; }
+}
+
+/* RESPONSIVE DESIGN: AUTO JADI 1 KOLUM BILA BUKA DEKAT HANDPHONE */
+@media (max-width: 992px) {
+  .career-two-column-container {
+    flex-direction: column;
+    gap: 35px;
+  }
+  .career-graphic-column {
+    width: 100%;
+  }
+  .soc-dashboard-vector-box {
+    max-width: 400px;
+  }
+}

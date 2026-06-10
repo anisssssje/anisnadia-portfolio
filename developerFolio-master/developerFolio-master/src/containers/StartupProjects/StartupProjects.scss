@@ -1,0 +1,192 @@
+@import "../../_globalColor";
+
+.academic-projects-main {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.projects-section-header {
+  margin-bottom: 50px;
+  text-align: left;
+
+  h2 {
+    font-size: 2.5rem !important;
+    font-weight: 700;
+    color: #0d9488;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.2;
+    &.dark-mode { color: #ffffff !important; }
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin: 0;
+    &.dark-sub { color: #94a3b8; }
+  }
+}
+
+/* WADAH UTAMA SCROLL DOWN SHOWCASE */
+.projects-showcase-container {
+  display: flex;
+  flex-direction: column;
+  gap: 70px; // Jarak pemisah yang luas antara satu skrin projek ke projek bawah dia
+  width: 100%;
+}
+
+/* STRUKTUR SATU BARIS PENUH (1 SCREEN IMPACT) */
+.project-fullscreen-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  padding: 40px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #0d9488;
+    box-shadow: 0 15px 30px -5px rgba(13, 148, 136, 0.1);
+  }
+
+  &.dark {
+    background: #171c28;
+    border-color: #334155;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Aturan Susunan Automatik Selang-Seli */
+.normal-row {
+  flex-direction: row; // Teks Kiri, Gambar Kanan
+}
+
+.reverse-row {
+  flex-direction: row-reverse; // Gambar Kiri, Teks Kanan (Zig-Zag!)
+}
+
+/* BAHAGIAN BLOK TEKS */
+.project-text-side {
+  flex: 1.2;
+  text-align: left;
+}
+
+.project-row-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.4;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dark .project-row-title { color: #ffffff; }
+
+.project-index-badge {
+  background: rgba(13, 148, 136, 0.1);
+  color: #0d9488;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.project-row-divider {
+  height: 2px;
+  background: linear-gradient(90deg, #0d9488 0%, transparent 100%);
+  margin-bottom: 20px;
+}
+
+.project-row-points {
+  padding-left: 18px;
+  margin: 0;
+
+  li {
+    font-size: 0.98rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    list-style-type: square;
+    text-align: justify;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.dark .project-row-points li { color: #cbd5e1; }
+
+/* BAHAGIAN FRAME GAMBAR BESAR */
+.project-image-side {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.project-showcase-frame {
+  width: 100%;
+  max-width: 440px; 
+  height: 280px; // Kekalkan ketinggian tinggi yang luas untuk paparan jelas
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #0d9488;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  
+  /* FIX 1: Tukar latar belakang frame jadi putih bersih (waktu light mode) 
+     supaya border gambar rajah FYP hang menyatu kemas tanpa lopak kelabu abu */
+  background: #ffffff; 
+}
+
+/* FIX 2: Kemas kini dalam Dark Mode supaya latar belakang bertukar gelap siber */
+.dark .project-showcase-frame { 
+  border-color: #0d9488; 
+  background: #1d2433; // Warna gelap senada dengan tema malam portfolio hang
+}
+
+.project-showcase-img {
+  width: 100%;
+  height: 100%;
+  
+  /* FIX MUTLAK: Paksa imej keluar penuh 100% tanpa potong sikit pun! */
+  object-fit: contain; 
+  
+  /* Beri sedikit ruang padding dalaman supaya border gambar tak rapat sangat dengan garisan teal */
+  padding: 8px; 
+
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.02); // Efek anjakan manja waktu di-hover mouse
+  }
+}
+
+.project-showcase-caption {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #64748b;
+  text-align: center;
+}
+.dark .project-showcase-caption { color: #94a3b8; }
+
+/* RESPONSIVE DESIGN UNTUK SKRIN KECIL */
+@media (max-width: 992px) {
+  .project-fullscreen-row {
+    flex-direction: column !important; // Paksa bertukar menegak atas bawah kalau skrin fon/tablet
+    padding: 25px;
+    gap: 30px;
+  }
+  .project-image-side {
+    width: 100%;
+  }
+  .project-showcase-frame {
+    max-width: 100%;
+    height: 220px;
+  }
+}

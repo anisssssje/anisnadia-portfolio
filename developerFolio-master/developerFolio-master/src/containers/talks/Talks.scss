@@ -1,0 +1,192 @@
+.reflection-main-section {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.reflection-header-area {
+  margin-bottom: 40px;
+  text-align: left;
+  
+  .reflection-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+    &.dark-mode { color: #ffffff; }
+  }
+  
+  .reflection-subtitle {
+    font-size: 1.1rem;
+    color: #0d9488; // Tukar warna target focus jadi Teal menyala biar kontra dengan ungu
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    &.dark-mode { color: #0d9488; }
+  }
+}
+
+/* WADAH UTAMA SUSUNAN MELINTANG (ATAS KE BAWAH) */
+.reflection-horizontal-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; // Jarak bernafas antara barisan kad melintang
+  width: 100%;
+}
+
+.reflection-row-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: row; // Paksa susunan melintang ke kanan
+  overflow: hidden;
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateX(5px); // Efek anjakan ke kanan sikit bila di-hover, sangat premium!
+    box-shadow: 0 10px 15px -3px rgba(88, 28, 135, 0.1);
+    border-color: rgba(88, 28, 135, 0.3);
+  }
+
+  &.dark {
+    background: #171c28;
+    border-color: #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    
+    &:hover {
+      border-color: #a855f7;
+      box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.15);
+    }
+  }
+}
+
+/* BAHAGIAN KIRI: KOTAK SIMBOL UNGU ROYAL */
+.row-left-symbol-box {
+  background: linear-gradient(135deg, #581c87 0%, #3b0764 100%); // Warna Ungu Royal kegemaran hang
+  min-width: 150px;
+  max-width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  flex-shrink: 0; // Mengelakkan kotak simbol daripada mengecil
+}
+
+.symbol-icon-wrapper {
+  width: 45px;
+  height: 45px;
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.symbol-index-tag {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* BAHAGIAN KANAN: RUANG KANDUNGAN HURAIAN TEKS */
+.row-right-content-box {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  flex: 1;
+}
+
+.row-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  
+  &.dark-text {
+    color: #ffffff;
+  }
+}
+
+.title-bottom-line {
+  height: 2px;
+  background: rgba(13, 148, 136, 0.2); // Garis bawah penenang warna teal halus
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.row-bullet-list {
+  padding-left: 20px;
+  margin: 0;
+  
+  li {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    text-align: justify;
+    list-style-type: square; // Guna bullet petak siber yang clean
+    
+    &:last-child {
+      margin-bottom: 0; // Buang margin untuk list terakhir
+    }
+    
+    &.dark-point-text {
+      color: #cbd5e1;
+    }
+  }
+}
+
+/* RESPONSIVE DESIGN: TUKAR JADI TEGAK BALIK BILA BUKA DEKAT PHONE */
+@media (max-width: 768px) {
+  .reflection-heading { font-size: 2rem !important; }
+  .reflection-row-card {
+    flex-direction: column; // Tukar jadi menegak balik dekat skrin kecik telefon
+    &:hover { transform: translateY(-3px); }
+  }
+  .row-left-symbol-box {
+    min-width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+    padding: 15px;
+    gap: 15px;
+  }
+  .symbol-icon-wrapper { width: 30px; height: 30px; }
+  .row-right-content-box { padding: 20px; }
+}
+
+.generated-cyber-chart-box {
+  width: 100%;
+  max-width: 460px;
+  background: rgba(248, 250, 252, 0.6);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 15px 5px 15px;
+}
+.dark .generated-cyber-chart-box {
+  background: rgba(15, 20, 28, 0.5);
+  border-color: #334155;
+}
+
+.generated-shield-badge-box {
+  width: 100%;
+  max-width: 460px;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .generated-cyber-chart-box, .generated-shield-badge-box {
+    max-width: 100%;
+
+@media (max-width: 992px) {
+  .roadmap-connecting-pipeline {
+    display: none !important; // Padam pipeline melintang kalau skrin fon bertukar jadi menegak
+  }
+}
+  }
+}
