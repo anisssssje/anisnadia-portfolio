@@ -46,84 +46,100 @@ export default function StartupProject() {
     {
       title: "Enterprise Network Traffic Forensics & Incident Isolation",
       points: [
-        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure.",
-        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP).",
-        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks."
+        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure[cite: 1].",
+        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP)[cite: 1].",
+        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks[cite: 1]."
       ],
       image: wiresharkImg,
-      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation"
+      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation[cite: 1]"
     }
   ];
 
   return (
-    <div className="academic-projects-main" id="academic-projects">
+    <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "40px 0", boxSizing: "border-box" }}>
       <Fade bottom duration={1000}>
         
         {/* HEADER UTAMA SEKSYEN */}
-        <div className="projects-section-header">
-          <h2 className={isDark ? "dark-mode" : ""}>Academic & Core Capstone Projects</h2>
-          <p className={isDark ? "dark-sub" : ""}>
+        <div style={{ textAlign: "left", marginBottom: "30px", width: "100%" }}>
+          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", marginBottom: "10px", marginTop: 0 }}>
+            Academic & Core Capstone Projects
+          </h2>
+          <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b", margin: 0 }}>
             Tangible implementation of secure communication protocols, digital forensics, and network defense validation.
           </p>
         </div>
 
-        {/* LIST PROJEK SECARA ROW BERPERINGKAT */}
-        <div className="projects-showcase-container">
+        {/* LIST PROJEK SECARA ROW BERPERINGKAT (MATIKAN KELAS KOTAK LAMA KANTOI GAP) */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "30px", width: "100%" }}>
           {academicProjects.map((project, index) => {
             const isEven = index % 2 === 0;
             
             return (
               <div 
                 key={index} 
-                className={`project-fullscreen-row ${isEven ? "normal-row" : "reverse-row"} ${isDark ? "dark" : ""}`}
-                style={{
+                style={{ 
+                  display: "flex",
+                  flexDirection: isEven ? "row" : "row-reverse",
+                  flexWrap: "wrap", 
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "100%",
+                  gap: "30px",
+                  padding: "30px",
+                  background: isDark ? "#171c28" : "#ffffff",
+                  borderRadius: "12px",
+                  border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`,
+                  boxSizing: "border-box",
                   transition: "all 0.3s ease-in-out",
-                  cursor: "pointer",
-                  boxSizing: "border-box"
+                  cursor: "pointer"
                 }}
-                // 🖱️ TAKTIK POPUP HOVER: Kotak meluncur naik and ada shadow bila cursor lalu!
+                // ✨ HOVER POPUP EFFECT YANG KEKAL BERFUNGSI MANTAP
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-8px) scale(1.01)";
-                  e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(0, 0, 0, 0.15)";
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.15)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  e.currentTarget.style.transform = "translateY(0)";
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
                 
-                {/* LALUAN KIRI/KANAN: HURAIAN TEKS PROJEK */}
-                <div className="project-text-side">
-                  <h3 className="project-row-title" style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-                    <span className="project-index-badge" style={{ display: "inline-block", minWidth: "35px", textAlign: "center" }}>
+                {/* TIMAL HURAIAN TEKS PROJEK */}
+                <div style={{ flex: "1 1 450px", minWidth: "0", textAlign: "left", boxSizing: "border-box" }}>
+                  <h3 style={{ fontSize: "1.35rem", fontWeight: "700", color: "#0d9488", margin: "0 0 12px 0", display: "flex", alignItems: "center", gap: "10px" }}>
+                    <span style={{ padding: "3px 8px", background: "rgba(13, 148, 136, 0.1)", borderRadius: "6px", fontSize: "1rem" }}>
                       0{index + 1}
                     </span> 
-                    <span style={{ lineHeight: "1.3" }}>{project.title}</span>
+                    {project.title}
                   </h3>
-                  <div className="project-row-divider"></div>
-                  <ul className="project-row-points">
+                  <div style={{ height: "2px", background: "#0d9488", width: "50px", marginBottom: "15px" }}></div>
+                  <ul style={{ paddingLeft: "18px", margin: 0 }}>
                     {project.points.map((point, i) => (
-                      <li key={i}>{point}</li>
+                      <li key={i} style={{ fontSize: "0.95rem", color: isDark ? "#cbd5e1" : "#475569", lineHeight: "1.5", marginBottom: "8px", listStyleType: "square" }}>
+                        {point}
+                      </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* LALUAN KANAN/KIRI: GAMBAR RESPONSIF KEMAS */}
-                <div className="project-image-side" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                {/* TIMAL GAMBAR: DIBAIKI KETINGGIAN & LEBAR SUPAYA GAMBAR WIRESHARK TAK BESAR/TERPOTONG */}
+                <div style={{ flex: "1 1 350px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", boxSizing: "border-box" }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     style={{ 
                       width: "100%", 
-                      maxWidth: "440px", 
-                      height: "auto", 
-                      borderRadius: "8px", 
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                      maxWidth: "420px", // Diturunkan sikit dari 440px supaya ngam and tak gergasi sangat
+                      maxHeight: "260px", // DIKUNCI KETINGGIAN MAKSIMUM SUPAYA GAMBAR 4 TAK OVERFLOW KELUAR
+                      objectFit: "contain", // Paksa gambar fit dalam acuan tanpa terpotong
+                      borderRadius: "6px", 
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                       display: "block",
-                      margin: "0 auto"
+                      margin: "0 auto",
+                      background: isDark ? "#0f141c" : "#f8fafc" // Letak bg sikit belakang gambar kalau gambar tu transparent
                     }} 
                   />
-                  <span className="project-showcase-caption" style={{ display: "block", marginTop: "10px", textAlign: "center" }}>
+                  <span style={{ display: "block", marginTop: "10px", fontSize: "0.8rem", color: "#64748b", fontStyle: "italic", textAlign: "center" }}>
                     {project.caption}
                   </span>
                 </div>
