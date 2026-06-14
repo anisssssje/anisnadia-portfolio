@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import "./Achievement.scss"; // Menggunakan reka bentuk gaya fail SCSS hang
+import "./Achievement.scss";
 import { Fade } from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
-// 📸 IMPORT 6 IMEJ SIJIL ASLI DARI LAPTOP HANG
+// 📸 IMPORT 6 IMEDJ SIJIL ASLI DARI LAPTOP HANG
 import ccnaImg from "../../assets/images/cert-ccna.png";
 import cisspImg from "../../assets/images/cert-cissp.png";
 import huntingImg from "../../assets/images/cert-hunting.png";
@@ -57,7 +57,7 @@ export default function Certification() {
     <div className="certs-section-main" id="certifications">
       <Fade bottom duration={1000}>
         
-        {/* HEADER UTAMA: FIX BERTINDIH & SUPPORT NIGHT MODE */}
+        {/* HEADER UTAMA */}
         <div className="certs-header-div">
           <h2 className={isDark ? "dark-mode" : ""}>Certifications & Professional Trainings</h2>
           <p className={isDark ? "dark-sub" : ""}>
@@ -80,15 +80,31 @@ export default function Certification() {
                 <p className="cert-card-desc">{cert.desc}</p>
               </div>
 
-              {/* 🖼️ MENYATUKAN KELAS SCSS HANG: AUTO-CENTRE & KEBAL RESPONSIVE DI TELEFON */}
-              <div className="cert-image-wrapper" style={{ borderTop: isDark ? "1px dashed #334155" : "1px dashed #cbd5e1", paddingTop: "15px" }}>
-                <div className="cert-frame-holder" style={{ margin: "0 auto", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <img 
-                    src={cert.img} 
-                    alt={cert.title} 
-                    className="actual-cert-img-element"
-                  />
-                </div>
+              {/* 🖼️ ZASSS! INDUK GAMBAR: TIADA FRAME, TIADA BACKGROUND, 100% AUTO-CENTRE KAT PHONE & LAPTOP */}
+              <div style={{
+                width: "100%",
+                borderTop: isDark ? "1px dashed #334155" : "1px dashed #cbd5e1",
+                padding: "20px", 
+                boxSizing: "border-box",
+                display: "flex",
+                justifyContent: "center", // Paksa centre mendatar
+                alignItems: "center",     // Paksa centre menegak
+                margin: "0 auto"
+              }}>
+                <img 
+                  src={cert.img} 
+                  alt={cert.title} 
+                  style={{
+                    width: "100%",
+                    maxWidth: "270px", // Saiz ngam-ngam paparan kad
+                    height: "auto",
+                    maxHeight: "190px",
+                    objectFit: "contain",
+                    display: "block",
+                    margin: "0 auto", // Kunci mati center global browser mobile
+                    opacity: 0.95
+                  }}
+                />
               </div>
 
             </div>
