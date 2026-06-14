@@ -170,6 +170,14 @@ const LeadershipExperience = () => {
 const EvidenceOfLearning = ({ isDark }) => {
   const [subTab, setSubTab] = useState("industrial");
 
+const handleSubTabChange = (tabName) => {
+    setSubTab(tabName);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // Memberi kesan pergerakan meluncur naik yang sangat lembut!
+    });
+  };
+
   return (
     <div style={{ width: "100%" }}>
       {/* Menu Sub-Tab Atas - KITA DAH RESPONSIVEKAN GUNA FLEX KEMAS */}
