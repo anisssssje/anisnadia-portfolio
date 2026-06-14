@@ -18,7 +18,7 @@ import leadMppImg from "../assets/images/lead-mpp.png";
 import leadGreenImg from "../assets/images/lead-green.png";
 import leadBroadcastImg from "../assets/images/lead-broadcast.png";
 import mobilityImg from "../assets/images/cert-mobility.png";
-
+import { Fade } from "react-reveal";
 // ==========================================
 // 🏛️ COMPONENT SUB-SECTION 4: LEADERSHIP & ACTIVITIES (VERSI BEBAS RALAT & HOVER LIFT-UP)
 // ==========================================
@@ -73,96 +73,93 @@ const LeadershipExperience = () => {
 
   return (
     <div style={{ width: "100%", padding: "10px 0" }}>
-      {/* 🚀 SUNTIKAN ANIMASI POPUP: Kasih masuk Fade bottom duration 1000 sama macam tab lain! */}
+      {/* 🎬 SEKTOR ANIMASI: Sekarang komputer dah kenal Fade sebab kita dah import kat atas tadi! */}
       <Fade bottom duration={1000}>
+        
+        {/* HEADER SUB-SECTION 4 */}
+        <div style={{ marginBottom: "40px", textAlign: "left" }}>
+          <h2 style={{ fontSize: "2.5rem", fontWeight: "700", color: "#0d9488", margin: "0 0 10px 0", lineHeight: "1.2" }}>
+            Leadership & Student Activities
+          </h2>
+          <p style={{ fontSize: "1.1rem", color: "#64748b", margin: "0 0 35px 0", lineHeight: "1.5" }}>
+            Strategic governance, financial management, and real-time technical operations.
+          </p>
+        </div>
 
-      {/* HEADER SUB-SECTION 4 */}
-      <div style={{ marginBottom: "40px", textAlign: "left" }}>
-        <h2 style={{ fontSize: "2.5rem", fontWeight: "700", color: "#0d9488", margin: "0 0 10px 0", lineHeight: "1.2" }}>
-          Leadership & Student Activities
-        </h2>
-        <p style={{ fontSize: "1.1rem", color: "#64748b", margin: "0 0 35px 0", lineHeight: "1.5" }}>
-          Strategic governance, financial management, and real-time technical operations.
-        </p>
-      </div>
-
-      {/* KOTAK KAD BERSIH DENGAN FUNGSI MAP() YANG DAH DIBAIKI */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "35px", width: "100%" }}>
-        {leadershipData.map((item, index) => ( // <--- ✅ KITA DAH MASUKKAN BALIK BARIS PENTING NI!
-          <div 
-  key={index} 
-  className={isDark ? "cert-premium-card dark" : "cert-premium-card"} // <-- Kita guna kelas penuh portfolio hang
-  style={{ 
-  background: isDark ? "#171c28" : "#ffffff", 
-  borderRadius: "14px", 
-  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.02)", 
-  padding: "20px", /* Kecilkan padding dari 40px ke 20px supaya muat skrin phone */
-  textAlign: "left",
-  width: "100%",
-  maxWidth: "100%", /* Paksa kad tidak boleh lebih lebar dari phone */
-  boxSizing: "border-box", /* Elakkan padding tolak dinding kad keluar */
-  display: "flex",
-  flexDirection: "column",
-  transition: "all 0.3s ease-in-out",
-  cursor: "pointer"
-}}
->
-            {/* Tag Lencana Kecil Di Atas */}
-            <div style={{ marginBottom: "12px" }}>
-              <span style={{ background: "rgba(13, 148, 136, 0.08)", color: "#0d9488", fontSize: "0.75rem", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", padding: "6px 14px", borderRadius: "6px", fontFamily: "monospace" }}>
-                {item.tag}
-              </span>
-            </div>
-
-            {/* Tajuk Utama - VERSI BARU BIAR AUTO-TURUN BAWAH KAT PHONE */}
-<div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", gap: "6px", marginBottom: "15px", width: "100%" }}>
-  <h3 style={{ fontSize: "1.2rem", fontWeight: "700", color: isDark ? "#ffffff" : "#0f172a", margin: "0", lineHeight: "1.4", width: "100%", wordBreak: "break-word" }}>
-    {item.title}
-  </h3>
-  <span style={{ fontSize: "0.85rem", fontWeight: "700", color: "#64748b", display: "block", width: "100%" }}>
-    {item.subtitle}
-  </span>
-</div>
-            
-            <div style={{ height: "1px", background: isDark ? "#334155" : "#e2e8f0", marginBottom: "20px", opacity: 0.5 }}></div>
-
-            {/* Poin List Teks */}
-            <ul style={{ paddingLeft: "18px", margin: "0 0 25px 0" }}>
-              {item.points.map((point, i) => (
-                <li key={i} style={{ fontSize: "0.98rem", color: isDark ? "#cbd5e1" : "#475569", lineHeight: "1.6", marginBottom: "12px", listStyleType: "square", textAlign: "justify" }}>
-                  {point}
-                </li>
-              ))}
-            </ul>
-
-            {/* BINGKAI IMEDJ MINI MALIS TANPA BORDER TEBAL & AUTO-CENTER */}
-            {item.activityImage && (
-              <div style={{ 
-                width: "100%", 
-                borderTop: isDark ? "1px dashed #334155" : "1px dashed #cbd5e1",
-                paddingTop: "25px",
+        {/* KOTAK KAD BERSIH */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "35px", width: "100%" }}>
+          {leadershipData.map((item, index) => (
+            <div 
+              key={index} 
+              className={isDark ? "cert-premium-card dark" : "cert-premium-card"}
+              style={{ 
+                background: isDark ? "#171c28" : "#ffffff", 
+                borderRadius: "14px", 
+                boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.02)", 
+                padding: "20px",
+                textAlign: "left",
+                width: "100%",
+                boxSizing: "border-box",
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <img 
-                  src={item.activityImage} 
-                  alt="Leadership Activity Exhibit" 
-                  style={{ 
-                    width: "100%", 
-                    maxWidth: "580px", 
-                    height: "auto", 
-                    maxHeight: "280px",
-                    objectFit: "contain",
-                    opacity: 0.95
-                  }}
-                />
+                flexDirection: "column",
+                transition: "all 0.3s ease-in-out",
+                cursor: "pointer"
+              }}
+            >
+              {/* ISI KANDUNGAN KAD (Kekal sama macam kod hang) */}
+              <div style={{ marginBottom: "12px" }}>
+                <span style={{ background: "rgba(13, 148, 136, 0.08)", color: "#0d9488", fontSize: "0.75rem", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", padding: "6px 14px", borderRadius: "6px", fontFamily: "monospace" }}>
+                  {item.tag}
+                </span>
               </div>
-            )}
-          </div>
-        ))} {/* <--- ✅ Penutup pemetaan map() */}
-      </div>
-    </Fade>
+
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", gap: "6px", marginBottom: "15px", width: "100%" }}>
+                <h3 style={{ fontSize: "1.2rem", fontWeight: "700", color: isDark ? "#ffffff" : "#0f172a", margin: "0", lineHeight: "1.4", width: "100%", wordBreak: "break-word" }}>
+                  {item.title}
+                </h3>
+                <span style={{ fontSize: "0.85rem", fontWeight: "700", color: "#64748b", display: "block", width: "100%" }}>
+                  {item.subtitle}
+                </span>
+              </div>
+              
+              <div style={{ height: "1px", background: isDark ? "#334155" : "#e2e8f0", marginBottom: "20px", opacity: 0.5 }}></div>
+
+              <ul style={{ paddingLeft: "18px", margin: "0 0 25px 0" }}>
+                {item.points.map((point, i) => (
+                  <li key={i} style={{ fontSize: "0.98rem", color: isDark ? "#cbd5e1" : "#475569", lineHeight: "1.6", marginBottom: "12px", listStyleType: "square", textAlign: "justify" }}>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+
+              {item.activityImage && (
+                <div style={{ 
+                  width: "100%", 
+                  borderTop: isDark ? "1px dashed #334155" : "1px dashed #cbd5e1",
+                  paddingTop: "25px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}>
+                  <img 
+                    src={item.activityImage} 
+                    alt="Leadership Activity Exhibit" 
+                    style={{ 
+                      width: "100%", 
+                      maxWidth: "580px", 
+                      height: "auto", 
+                      maxHeight: "280px",
+                      objectFit: "contain",
+                      opacity: 0.95
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+      </Fade> {/* 🚀 Penutup Fade */}
     </div>
   );
 };
