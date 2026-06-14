@@ -21,7 +21,8 @@ export default function StartupProject() {
         "Enforced cryptographic data integrity to protect sensitive user healthcare telemetry from unauthorized interception."
       ],
       image: iotImg,
-      caption: "Technical Exhibit 1: IoT Telemetry Access Verification"
+      caption: "Technical Exhibit 1: IoT Telemetry Access Verification",
+      imageSize: "360px" // 1️⃣ Saiz asal yang comel and tak gergasi untuk Kotak 1
     },
     {
       title: "Secure Image Steganography using Hybrid Cryptographic Algorithms",
@@ -31,7 +32,8 @@ export default function StartupProject() {
         "Optimized with a 16-bit End of Bit (EOB) technique to guarantee rapid, robust data extraction and exceptionally low bit error rates."
       ],
       image: stegoImg,
-      caption: "Technical Exhibit 2: Robust Extraction Bit Error Rate Log"
+      caption: "Technical Exhibit 2: Robust Extraction Bit Error Rate Log",
+      imageSize: "480px" // 2️⃣ Kekal besar and mantap
     },
     {
       title: "Enterprise Vulnerability Diagnostics & Traffic Analysis",
@@ -41,17 +43,19 @@ export default function StartupProject() {
         "Simulated automated backend exploits, user credential updates, and table creation using active SQL Injection (SQLi) deployment inside WebGoat environments."
       ],
       image: vunImg,
-      caption: "Technical Exhibit 3: Deep Network-Layer Packet Dissection"
+      caption: "Technical Exhibit 3: Deep Network-Layer Packet Dissection",
+      imageSize: "480px" // 3️⃣ Kekal besar and mantap
     },
     {
       title: "Enterprise Network Traffic Forensics & Incident Isolation",
       points: [
-        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure[cite: 1].",
-        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP)[cite: 1].",
-        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks[cite: 1]."
+        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure.",
+        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP).",
+        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks."
       ],
       image: wiresharkImg,
-      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation[cite: 1]"
+      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation",
+      imageSize: "500px" // 4️⃣ Dinaikkan ke 500px supaya extra gempak and sama megah dengan kotak 2 & 3!
     }
   ];
 
@@ -121,16 +125,16 @@ export default function StartupProject() {
                   </ul>
                 </div>
 
-                {/* TIMAL GAMBAR: DIBAIKI (SAMA RATA BESAR MACAM KOTAK 3 & NO BACKGROUND FRAME) */}
+                {/* TIMAL GAMBAR: LARAS SAIZ SECARA DINAMIK IKUT KOTAK */}
                 <div style={{ flex: "1 1 350px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", boxSizing: "border-box" }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     style={{ 
                       width: "100%", 
-                      maxWidth: "480px", // Ditambah saiz lebar sikit supaya kotak 2 and 4 gempak and besar
-                      height: "auto", // Biar dia auto-scale ikut nisbah gambar asal tanpa kemek
-                      objectFit: "cover", // Paksa dia penuh and fit macam kotak 3
+                      maxWidth: project.imageSize, // Membaca saiz spesifik dari data array atas!
+                      height: "auto", 
+                      objectFit: "cover", 
                       borderRadius: "6px", 
                       boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
                       display: "block",
