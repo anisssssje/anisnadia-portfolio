@@ -22,7 +22,7 @@ export default function StartupProject() {
       ],
       image: iotImg,
       caption: "Technical Exhibit 1: IoT Telemetry Access Verification",
-      imageSize: "360px" // 1️⃣ Saiz asal yang comel and tak gergasi untuk Kotak 1
+      imageSize: "360px"
     },
     {
       title: "Secure Image Steganography using Hybrid Cryptographic Algorithms",
@@ -33,7 +33,7 @@ export default function StartupProject() {
       ],
       image: stegoImg,
       caption: "Technical Exhibit 2: Robust Extraction Bit Error Rate Log",
-      imageSize: "480px" // 2️⃣ Kekal besar and mantap
+      imageSize: "480px"
     },
     {
       title: "Enterprise Vulnerability Diagnostics & Traffic Analysis",
@@ -44,7 +44,7 @@ export default function StartupProject() {
       ],
       image: vunImg,
       caption: "Technical Exhibit 3: Deep Network-Layer Packet Dissection",
-      imageSize: "480px" // 3️⃣ Kekal besar and mantap
+      imageSize: "480px"
     },
     {
       title: "Enterprise Network Traffic Forensics & Incident Isolation",
@@ -55,16 +55,16 @@ export default function StartupProject() {
       ],
       image: wiresharkImg,
       caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation",
-      imageSize: "500px" // 4️⃣ Dinaikkan ke 500px supaya extra gempak and sama megah dengan kotak 2 & 3!
+      imageSize: "480px"
     }
   ];
 
   return (
-    <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "40px 0", boxSizing: "border-box" }}>
+    <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "40px 15px", boxSizing: "border-box" }}>
       <Fade bottom duration={1000}>
         
         {/* HEADER UTAMA SEKSYEN */}
-        <div style={{ textAlign: "left", marginBottom: "30px", width: "100%" }}>
+        <div style={{ textAlign: "left", marginBottom: "35px", width: "100%" }}>
           <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", marginBottom: "10px", marginTop: 0 }}>
             Academic & Core Capstone Projects
           </h2>
@@ -73,14 +73,15 @@ export default function StartupProject() {
           </p>
         </div>
 
-        {/* LIST PROJEK SECARA ROW BERPERINGKAT */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "30px", width: "100%" }}>
+        {/* LIST PROJEK SECARA ROW BERPERINGKAT (KUNCI MATI GAYA KOTAK DI SINI) */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "35px", width: "100%" }}>
           {academicProjects.map((project, index) => {
             const isEven = index % 2 === 0;
             
             return (
               <div 
                 key={index} 
+                className="anis-custom-project-row-card"
                 style={{ 
                   display: "flex",
                   flexDirection: isEven ? "row" : "row-reverse",
@@ -89,13 +90,14 @@ export default function StartupProject() {
                   justifyContent: "space-between",
                   width: "100%",
                   gap: "30px",
-                  padding: "30px",
+                  padding: "25px",
                   background: isDark ? "#171c28" : "#ffffff",
-                  borderRadius: "12px",
-                  border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`,
+                  borderRadius: "14px", 
+                  border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`, 
                   boxSizing: "border-box",
                   transition: "all 0.3s ease-in-out",
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05)"
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-6px)";
@@ -103,45 +105,58 @@ export default function StartupProject() {
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "none";
+                  e.currentTarget.style.boxShadow = "0 4px 6px -1px rgba(0, 0, 0, 0.05)";
                 }}
               >
                 
                 {/* TIMAL HURAIAN TEKS PROJEK */}
                 <div style={{ flex: "1 1 450px", minWidth: "0", textAlign: "left", boxSizing: "border-box" }}>
-                  <h3 style={{ fontSize: "1.35rem", fontWeight: "700", color: "#0d9488", margin: "0 0 12px 0", display: "flex", alignItems: "center", gap: "10px" }}>
-                    <span style={{ padding: "3px 8px", background: "rgba(13, 148, 136, 0.1)", borderRadius: "6px", fontSize: "1rem" }}>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "15px", marginBottom: "15px" }}>
+                    {/* BADGE01 DIKUNCI MATI SUPAYA TAK KEMEK DAN KELUAR MENEGAK */}
+                    <span style={{ 
+                      padding: "5px 10px", 
+                      background: "rgba(13, 148, 136, 0.15)", 
+                      borderRadius: "8px", 
+                      fontSize: "1rem", 
+                      fontWeight: "700", 
+                      color: "#0d9488",
+                      display: "inline-block",
+                      whiteSpace: "nowrap",
+                      flexShrink: 0
+                    }}>
                       0{index + 1}
                     </span> 
-                    {project.title}
-                  </h3>
-                  <div style={{ height: "2px", background: "#0d9488", width: "50px", marginBottom: "15px" }}></div>
+                    <h3 style={{ fontSize: "1.35rem", fontWeight: "700", color: "#0d9488", margin: 0, lineHeight: "1.3" }}>
+                      {project.title}
+                    </h3>
+                  </div>
+                  <div style={{ height: "2px", background: "#0d9488", width: "50px", marginBottom: "20px" }}></div>
                   <ul style={{ paddingLeft: "18px", margin: 0 }}>
                     {project.points.map((point, i) => (
-                      <li key={i} style={{ fontSize: "0.95rem", color: isDark ? "#cbd5e1" : "#475569", lineHeight: "1.5", marginBottom: "8px", listStyleType: "square" }}>
+                      <li key={i} style={{ fontSize: "0.95rem", color: isDark ? "#cbd5e1" : "#475569", lineHeight: "1.6", marginBottom: "10px", listStyleType: "square" }}>
                         {point}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* TIMAL GAMBAR: LARAS SAIZ SECARA DINAMIK IKUT KOTAK */}
+                {/* TIMAL GAMBAR: DIKUNCI MATI RESPONSIF TANPA OVERFLOW */}
                 <div style={{ flex: "1 1 350px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", boxSizing: "border-box" }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     style={{ 
                       width: "100%", 
-                      maxWidth: project.imageSize, // Membaca saiz spesifik dari data array atas!
+                      maxWidth: project.imageSize, 
                       height: "auto", 
                       objectFit: "cover", 
-                      borderRadius: "6px", 
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                      borderRadius: "8px", 
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
                       display: "block",
                       margin: "0 auto"
                     }} 
                   />
-                  <span style={{ display: "block", marginTop: "10px", fontSize: "0.8rem", color: "#64748b", fontStyle: "italic", textAlign: "center" }}>
+                  <span style={{ display: "block", marginTop: "12px", fontSize: "0.8rem", color: "#64748b", fontStyle: "italic", textAlign: "center", width: "100%" }}>
                     {project.caption}
                   </span>
                 </div>
