@@ -76,7 +76,20 @@ export default function StartupProject() {
               <div 
                 key={index} 
                 className={`project-fullscreen-row ${isEven ? "normal-row" : "reverse-row"} ${isDark ? "dark" : ""}`}
-                style={{ marginBottom: "40px" }} // Mengurangkan gap besar di phone
+                style={{
+                  transition: "all 0.3s ease-in-out",
+                  cursor: "pointer",
+                  boxSizing: "border-box"
+                }}
+                // 🖱️ TAKTIK POPUP HOVER: Kotak meluncur naik and ada shadow bila cursor lalu!
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px) scale(1.01)";
+                  e.currentTarget.style.boxShadow = "0 20px 25px -5px rgba(0, 0, 0, 0.15)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0) scale(1)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
               >
                 
                 {/* LALUAN KIRI/KANAN: HURAIAN TEKS PROJEK */}
@@ -95,14 +108,14 @@ export default function StartupProject() {
                   </ul>
                 </div>
 
-                {/* LALUAN KANAN/KIRI: GAMBAR CLEAN TANPA FRAME ASAL (KECIL SIKIT & AUTO CENTER) */}
+                {/* LALUAN KANAN/KIRI: GAMBAR RESPONSIF KEMAS */}
                 <div className="project-image-side" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     style={{ 
                       width: "100%", 
-                      maxWidth: "440px", // Ditukar dari 550px ke 440px supaya imej IoT tak terlalu besar and gergasi!
+                      maxWidth: "440px", 
                       height: "auto", 
                       borderRadius: "8px", 
                       boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
