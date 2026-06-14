@@ -165,21 +165,22 @@ const LeadershipExperience = () => {
 };
 
 // ==========================================
-// 📦 SEKSYEN SUB-TAB EVIDENCE OF LEARNING
-// ==========================================
-// ==========================================
-// 📦 SEKSYEN SUB-TAB EVIDENCE OF LEARNING (VERSI AUTO SCROLL-TO-TOP)
+// 📦 SEKSYEN SUB-TAB EVIDENCE OF LEARNING (VERSI LUNCI MATI TARGET)
 // ==========================================
 const EvidenceOfLearning = ({ isDark }) => {
   const [subTab, setSubTab] = useState("industrial");
 
-  // 🚀 FUNGSI SAKTI: Menukar sub-tab dan memaksa browser meluncur naik ke atas secara automatik!
+  // 🚀 FUNGSI PINCOK: Cari ID "evidence" atau "greeting" and paksa skrin melonjat naik ke situ!
   const handleSubTabChange = (tabName) => {
     setSubTab(tabName);
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth" // Memberi kesan pergerakan meluncur naik yang sangat lembut!
-    });
+    
+    // Kita cari container utama area kandungan portfolio hang
+    const mainArea = document.getElementById("greeting") || document.querySelector(".main-content-area");
+    if (mainArea) {
+      mainArea.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -196,7 +197,6 @@ const EvidenceOfLearning = ({ isDark }) => {
         paddingBottom: "10px",
         width: "100%"
       }}>
-        {/* 🛠️ GANTIAN BUTANG: Menggunakan fungsi handleSubTabChange yang baharu */}
         <button onClick={() => handleSubTabChange("industrial")} style={{ ...subBtnStyle(subTab === "industrial", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 1: Industrial Experience</button>
         <button onClick={() => handleSubTabChange("academic")} style={{ ...subBtnStyle(subTab === "academic", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 2: Academic Projects</button>
         <button onClick={() => handleSubTabChange("certs")} style={{ ...subBtnStyle(subTab === "certs", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 3: Certifications & Trainings</button>
