@@ -60,7 +60,7 @@ export default function StartupProject() {
   ];
 
   return (
-    <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "40px 15px", boxSizing: "border-box" }}>
+    <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "40px 0", boxSizing: "border-box" }}>
       <Fade bottom duration={1000}>
         
         {/* HEADER UTAMA SEKSYEN */}
@@ -84,10 +84,11 @@ export default function StartupProject() {
                 className="anis-custom-project-row-card"
                 style={{ 
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", // Menggunakan Grid tulen untuk musnahkan gap halimunan flexbox!
-                  alignItems: "start", // Paksa kandungan melekat ke atas, tak tolak ke tengah
+                  // ✨ TRIK PASAKAN: Jika laptop, dia pecah grid 2 column. Jika phone (lebar bawah 768px), dia auto-tukar jadi 1 column rapat!
+                  gridTemplateColumns: window.innerWidth > 768 ? "1fr 1fr" : "1fr",
+                  alignItems: "start",
                   width: "100%",
-                  gap: "20px", // Jarak rapat yang ideal antara teks dengan gambar rajah
+                  gap: "30px",
                   padding: "25px",
                   background: isDark ? "#171c28" : "#ffffff",
                   borderRadius: "14px", 
@@ -107,8 +108,14 @@ export default function StartupProject() {
                 }}
               >
                 
-                {/* SISI HURAIAN TEKS PROJEK */}
-                <div style={{ width: "100%", textAlign: "left", boxSizing: "border-box", margin: 0, padding: 0 }}>
+                {/* 📝 SISI TEKS: Ditentukan susunan ordernya secara dinamik berdasarkan indeks nombor kotak */}
+                <div style={{ 
+                  width: "100%", 
+                  textAlign: "left", 
+                  boxSizing: "border-box",
+                  // 🧠 LOGIK SAKTI: Kotak genap teks duduk kiri (order 1), kotak ganjil teks duduk kanan (order 2) dekat laptop!
+                  order: window.innerWidth > 768 ? (isEven ? 1 : 2) : 1 
+                }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "15px", marginBottom: "15px" }}>
                     <span style={{ 
                       padding: "5px 10px", 
@@ -137,8 +144,16 @@ export default function StartupProject() {
                   </ul>
                 </div>
 
-                {/* SISI GAMBAR: DIKUNCI MATI SUPAYA MELEKAT RAPAT DI BAWAH TEKS BILA DI MOBILE */}
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "start", width: "100%", boxSizing: "border-box", margin: 0, padding: 0 }}>
+                {/* 🖼️ SISI GAMBAR: Susunan order terbalik dengan teks bagi menghasilkan corak selang-seli rasmi laptop! */}
+                <div style={{ 
+                  display: "flex", 
+                  flexDirection: "column", 
+                  alignItems: "center", 
+                  justifyContent: "start", 
+                  width: "100%", 
+                  boxSizing: "border-box",
+                  order: window.innerWidth > 768 ? (isEven ? 2 : 1) : 2 // Auto-terbalikkan imej ke kiri/kanan kat laptop!
+                }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
