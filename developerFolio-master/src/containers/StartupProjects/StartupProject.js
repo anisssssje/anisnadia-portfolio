@@ -60,18 +60,18 @@ export default function StartupProject() {
   ];
 
   return (
-  <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "10px 15px", boxSizing: "border-box" }}>
+  <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "0 0 40px 0", boxSizing: "border-box" }}>
       <Fade bottom duration={1000}>
         
         {/* HEADER UTAMA SEKSYEN */}
-        <div style={{ textAlign: "left", marginBottom: "30px", width: "100%" }}>
-          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", marginTop: "0 0 10px 0", lineHeight: "1.2" }}>
-            Academic & Core Capstone Projects
-          </h2>
-          <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b", margin: "0 0 15px 0", lineHeight: "1.5" }}>
-            Tangible implementation of secure communication protocols, digital forensics, and network defense validation.
-          </p>
-        </div>
+        <div style={{ textAlign: "left", marginBottom: "30px", width: "100%", paddingTop: "10px" }}>
+  <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", margin: "0 0 8px 0", lineHeight: "1.2" }}>
+    Academic & Core Capstone Projects
+  </h2>
+  <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b", margin: 0, lineHeight: "1.4" }}>
+    Tangible implementation of secure communication protocols, digital forensics, and network defense validation.
+  </p>
+</div>
 
         {/* LIST PROJEK SECARA ROW BERPERINGKAT */}
         <div style={{ display: "flex", flexDirection: "column", gap: "35px", width: "100%" }}>
