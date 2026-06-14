@@ -167,10 +167,14 @@ const LeadershipExperience = () => {
 // ==========================================
 // 📦 SEKSYEN SUB-TAB EVIDENCE OF LEARNING
 // ==========================================
+// ==========================================
+// 📦 SEKSYEN SUB-TAB EVIDENCE OF LEARNING (VERSI AUTO SCROLL-TO-TOP)
+// ==========================================
 const EvidenceOfLearning = ({ isDark }) => {
   const [subTab, setSubTab] = useState("industrial");
 
-const handleSubTabChange = (tabName) => {
+  // 🚀 FUNGSI SAKTI: Menukar sub-tab dan memaksa browser meluncur naik ke atas secara automatik!
+  const handleSubTabChange = (tabName) => {
     setSubTab(tabName);
     window.scrollTo({
       top: 0,
@@ -180,22 +184,23 @@ const handleSubTabChange = (tabName) => {
 
   return (
     <div style={{ width: "100%" }}>
-      {/* Menu Sub-Tab Atas - KITA DAH RESPONSIVEKAN GUNA FLEX KEMAS */}
+      {/* Menu Sub-Tab Atas */}
       <div style={{ 
         display: "flex", 
         flexDirection: "row",
-        flexWrap: "wrap", /* Paksa butang melompat ke bawah kalau skrin sempit */
+        flexWrap: "wrap", 
         gap: "10px", 
-        justifyContent: "flex-start", /* Rapat kiri dekat laptop, kemas dekat phone */
+        justifyContent: "flex-start", 
         marginBottom: "30px", 
         borderBottom: `2px solid ${isDark ? "#334155" : "#e2e8f0"}`,
         paddingBottom: "10px",
         width: "100%"
       }}>
-        <button onClick={() => setSubTab("industrial")} style={{ ...subBtnStyle(subTab === "industrial", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 1: Industrial Experience</button>
-        <button onClick={() => setSubTab("academic")} style={{ ...subBtnStyle(subTab === "academic", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 2: Academic Projects</button>
-        <button onClick={() => setSubTab("certs")} style={{ ...subBtnStyle(subTab === "certs", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 3: Certifications & Trainings</button>
-        <button onClick={() => setSubTab("leadership")} style={{ ...subBtnStyle(subTab === "leadership", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 4: Leadership & Activities</button>
+        {/* 🛠️ GANTIAN BUTANG: Menggunakan fungsi handleSubTabChange yang baharu */}
+        <button onClick={() => handleSubTabChange("industrial")} style={{ ...subBtnStyle(subTab === "industrial", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 1: Industrial Experience</button>
+        <button onClick={() => handleSubTabChange("academic")} style={{ ...subBtnStyle(subTab === "academic", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 2: Academic Projects</button>
+        <button onClick={() => handleSubTabChange("certs")} style={{ ...subBtnStyle(subTab === "certs", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 3: Certifications & Trainings</button>
+        <button onClick={() => handleSubTabChange("leadership")} style={{ ...subBtnStyle(subTab === "leadership", isDark), flex: "1 1 auto", minWidth: "160px", whiteSpace: "normal", textAlign: "center" }}>Sub-section 4: Leadership & Activities</button>
       </div>
 
       {/* Paparan Kandungan Mengikut Sub-Tab */}
@@ -203,8 +208,6 @@ const handleSubTabChange = (tabName) => {
         {subTab === "industrial" && <WorkExperience />}
         {subTab === "academic" && <StartupProject />}
         {subTab === "certs" && <Achievement />}
-        
-        {/* FIX MUTLAK: KITA PAS NILAI ISDARK MASUK KE DALAM LEADERSHIP EXPERIENCE */}
         {subTab === "leadership" && <LeadershipExperience isDark={isDark} />}
       </div>
     </div>
