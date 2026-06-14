@@ -16,9 +16,10 @@ export default function SkillsAssessment() {
       points: [
         "Penetration Testing & Cyber Threat Hunting",
         "Digital Evidence Recovery & First Responder Protocols",
-        "Cryptographic Applications & Firewall Management"
+        "Cryptographic Applications & Firewall Management",
+        "Analyzed and reversed Base64-encoded strings within HTTP Authorization headers to detect credential eavesdropping vulnerabilities",
       ],
-      tags: ["Wireshark", "Digital Forensics", "Penetration Testing", "Cryptography"]
+      tags: ["Wireshark", "Digital Forensics", "Penetration Testing", "Cryptography", "Protocol Forensics"]
     },
     {
       title: "Networking & Infrastructure",
