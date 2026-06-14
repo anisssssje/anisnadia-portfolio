@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import "./Achievement.scss";
+import "./Achievement.scss"; // Menggunakan reka bentuk gaya fail SCSS hang
 import { Fade } from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
-// 📸 IMPORT 6 IMEDJ SIJIL ASLI DARI LAPTOP HANG
+// 📸 IMPORT 6 IMEJ SIJIL ASLI DARI LAPTOP HANG
 import ccnaImg from "../../assets/images/cert-ccna.png";
 import cisspImg from "../../assets/images/cert-cissp.png";
 import huntingImg from "../../assets/images/cert-hunting.png";
@@ -68,7 +68,11 @@ export default function Certification() {
         {/* GRID LAYOUT 3 KOLUM UNTUK 6 KAD SIJIL */}
         <div className="certs-grid-container">
           {certData.map((cert, index) => (
-            <div key={index} className={isDark ? "cert-premium-card dark" : "cert-premium-card"} style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div 
+              key={index} 
+              className={isDark ? "cert-premium-card dark" : "cert-premium-card"} 
+              style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}
+            >
               
               <div className="cert-card-body" style={{ flexGrow: 1 }}>
                 <span className="cert-badge-tag">{cert.badge}</span>
@@ -76,28 +80,15 @@ export default function Certification() {
                 <p className="cert-card-desc">{cert.desc}</p>
               </div>
 
-              {/* 🖼️ FIX MINIMALIS: BUANG BINGKAI KOTAK GREY & GANTI GARIS PUTUS-PUTUS HALUS */}
-              <div style={{
-                width: "100%",
-                borderTop: isDark ? "1px dashed #334155" : "1px dashed #cbd5e1",
-                padding: "25px 25px 30px 25px", // <-- JALAN PENYELESAIAN: Kita kunci jarak 30px di bawah kotak!
-                boxSizing: "border-box",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-              }}>
-                <img 
-                  src={cert.img} 
-                  alt={cert.title} 
-                  style={{
-                    width: "100%",
-                    maxWidth: "280px", 
-                    height: "auto",
-                    maxHeight: "200px", // <-- Kita upkan sikit biar sijil menegak nampak jelas & megah
-                    objectFit: "contain",
-                    opacity: 0.95
-                  }}
-                />
+              {/* 🖼️ MENYATUKAN KELAS SCSS HANG: AUTO-CENTRE & KEBAL RESPONSIVE DI TELEFON */}
+              <div className="cert-image-wrapper" style={{ borderTop: isDark ? "1px dashed #334155" : "1px dashed #cbd5e1", paddingTop: "15px" }}>
+                <div className="cert-frame-holder" style={{ margin: "0 auto", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <img 
+                    src={cert.img} 
+                    alt={cert.title} 
+                    className="actual-cert-img-element"
+                  />
+                </div>
               </div>
 
             </div>
