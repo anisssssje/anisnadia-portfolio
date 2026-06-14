@@ -22,7 +22,7 @@ export default function StartupProject() {
       ],
       image: iotImg,
       caption: "Technical Exhibit 1: IoT Telemetry Access Verification",
-      imageSize: "360px"
+      imageSize: "360px" 
     },
     {
       title: "Secure Image Steganography using Hybrid Cryptographic Algorithms",
@@ -49,13 +49,13 @@ export default function StartupProject() {
     {
       title: "Enterprise Network Traffic Forensics & Incident Isolation",
       points: [
-        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure[cite: 1].",
-        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP)[cite: 1].",
-        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks[cite: 1]."
+        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure.",
+        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP).",
+        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks."
       ],
       image: wiresharkImg,
-      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation[cite: 1]",
-      imageSize: "480px"
+      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation",
+      imageSize: "100%" // 🌐 DIUBAH KE 100% UNTUK KOTAK 4 SUPAYA GAMBAR WIRESHARK KEMBANG BESAR MAKSIMUM!
     }
   ];
 
@@ -85,7 +85,7 @@ export default function StartupProject() {
                 style={{ 
                   display: "grid",
                   gridTemplateColumns: window.innerWidth > 768 ? "1fr 1fr" : "1fr",
-                  alignItems: "center", // ✨ FIX MUTLAK: Ditukar ke "center" supaya gambar dengan teks sentiasa seimbang di tengah paksi menegak!
+                  alignItems: "center", 
                   width: "100%",
                   gap: "30px",
                   padding: "25px",
@@ -107,7 +107,7 @@ export default function StartupProject() {
                 }}
               >
                 
-                {/* 📝 SISI TEKS */}
+                {/* SISI TEKS (SURE BERSIH TIADA CITE) */}
                 <div style={{ 
                   width: "100%", 
                   textAlign: "left", 
@@ -142,7 +142,7 @@ export default function StartupProject() {
                   </ul>
                 </div>
 
-                {/* 🖼️ SISI GAMBAR */}
+                {/* SISI GAMBAR (SAIZ KOTAK 4 DIPAKSA LEBAR MAKSIMUM) */}
                 <div style={{ 
                   display: "flex", 
                   flexDirection: "column", 
@@ -159,7 +159,6 @@ export default function StartupProject() {
                       width: "100%", 
                       maxWidth: project.imageSize, 
                       height: "auto", 
-                      objectFit: "cover", 
                       borderRadius: "8px", 
                       boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
                       display: "block",
