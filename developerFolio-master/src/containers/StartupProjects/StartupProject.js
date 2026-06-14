@@ -65,7 +65,7 @@ export default function StartupProject() {
         
         {/* HEADER UTAMA SEKSYEN */}
         <div style={{ textAlign: "left", marginBottom: "30px", width: "100%" }}>
-          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", marginBottom: "10px", marginTop: 0 }}>
+          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", marginBottom: "25px", marginTop: 0, lineHeight: "1.3" }}>
             Academic & Core Capstone Projects
           </h2>
           <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b", margin: 0 }}>
