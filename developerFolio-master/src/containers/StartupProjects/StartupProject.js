@@ -49,12 +49,12 @@ export default function StartupProject() {
     {
       title: "Enterprise Network Traffic Forensics & Incident Isolation",
       points: [
-        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure[cite: 1].",
-        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP)[cite: 1].",
-        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks[cite: 1]."
+        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure.",
+        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP).",
+        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks."
       ],
       image: wiresharkImg,
-      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation[cite: 1]",
+      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation",
       imageSize: "480px"
     }
   ];
@@ -63,18 +63,18 @@ export default function StartupProject() {
     <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "40px 15px", boxSizing: "border-box" }}>
       <Fade bottom duration={1000}>
         
-        {/* HEADER UTAMA SEKSYEN - DIBAIKI AGAR TIDAK BERTINDIH */}
-        <div style={{ textAlign: "left", marginBottom: "40px", width: "100%" }}>
-          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", margin: "0 0 15px 0", lineHeight: "1.2" }}>
+        {/* HEADER UTAMA SEKSYEN */}
+        <div style={{ textAlign: "left", marginBottom: "30px", width: "100%" }}>
+          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", marginBottom: "10px", marginTop: 0 }}>
             Academic & Core Capstone Projects
           </h2>
-          <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b", marginTop: "10px", lineHeight: "1.5" }}>
+          <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b", margin: 0 }}>
             Tangible implementation of secure communication protocols, digital forensics, and network defense validation.
           </p>
         </div>
 
         {/* LIST PROJEK SECARA ROW BERPERINGKAT */}
-        <div className="projects-showcase-container" style={{ display: "flex", flexDirection: "column", gap: "40px", width: "100%" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "35px", width: "100%" }}>
           {academicProjects.map((project, index) => {
             const isEven = index % 2 === 0;
             
@@ -83,14 +83,12 @@ export default function StartupProject() {
                 key={index} 
                 className="anis-custom-project-row-card"
                 style={{ 
-                  display: "flex",
-                  flexDirection: isEven ? "row" : "row-reverse",
-                  flexWrap: "wrap", 
-                  alignItems: "center",
-                  justifyContent: "space-between",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", // Menggunakan Grid tulen untuk musnahkan gap halimunan flexbox!
+                  alignItems: "start", // Paksa kandungan melekat ke atas, tak tolak ke tengah
                   width: "100%",
-                  gap: "30px", 
-                  padding: "30px",
+                  gap: "20px", // Jarak rapat yang ideal antara teks dengan gambar rajah
+                  padding: "25px",
                   background: isDark ? "#171c28" : "#ffffff",
                   borderRadius: "14px", 
                   border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`, 
@@ -109,8 +107,8 @@ export default function StartupProject() {
                 }}
               >
                 
-                {/* TIMAL HURAIAN TEKS PROJEK - DISET DINAMIK UNTUK LAPTOP & PHONE */}
-                <div style={{ flex: "1 1 500px", minWidth: "280px", textAlign: "left", boxSizing: "border-box" }}>
+                {/* SISI HURAIAN TEKS PROJEK */}
+                <div style={{ width: "100%", textAlign: "left", boxSizing: "border-box", margin: 0, padding: 0 }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "15px", marginBottom: "15px" }}>
                     <span style={{ 
                       padding: "5px 10px", 
@@ -139,17 +137,8 @@ export default function StartupProject() {
                   </ul>
                 </div>
 
-                {/* TIMAL GAMBAR - DISET DINAMIK MEMATIKAN GAP PADA PHONE */}
-                <div style={{ 
-                  flex: "1 1 380px", 
-                  minWidth: "280px",
-                  display: "flex", 
-                  flexDirection: "column", 
-                  alignItems: "center", 
-                  justifyContent: "center", 
-                  width: "100%", 
-                  boxSizing: "border-box"
-                }}>
+                {/* SISI GAMBAR: DIKUNCI MATI SUPAYA MELEKAT RAPAT DI BAWAH TEKS BILA DI MOBILE */}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "start", width: "100%", boxSizing: "border-box", margin: 0, padding: 0 }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
@@ -165,7 +154,7 @@ export default function StartupProject() {
                     }} 
                   />
                   <span style={{ display: "block", marginTop: "12px", fontSize: "0.8rem", color: "#64748b", fontStyle: "italic", textAlign: "center", width: "100%" }}>
-                    {project.caption}[cite: 1]
+                    {project.caption}
                   </span>
                 </div>
 
