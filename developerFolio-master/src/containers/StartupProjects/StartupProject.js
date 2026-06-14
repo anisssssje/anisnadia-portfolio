@@ -49,12 +49,12 @@ export default function StartupProject() {
     {
       title: "Enterprise Network Traffic Forensics & Incident Isolation",
       points: [
-        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure.",
-        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP).",
-        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks."
+        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure[cite: 1].",
+        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP)[cite: 1].",
+        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks[cite: 1]."
       ],
       image: wiresharkImg,
-      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation",
+      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation[cite: 1]",
       imageSize: "480px"
     }
   ];
@@ -84,9 +84,8 @@ export default function StartupProject() {
                 className="anis-custom-project-row-card"
                 style={{ 
                   display: "grid",
-                  // ✨ TRIK PASAKAN: Jika laptop, dia pecah grid 2 column. Jika phone (lebar bawah 768px), dia auto-tukar jadi 1 column rapat!
                   gridTemplateColumns: window.innerWidth > 768 ? "1fr 1fr" : "1fr",
-                  alignItems: "start",
+                  alignItems: "center", // ✨ FIX MUTLAK: Ditukar ke "center" supaya gambar dengan teks sentiasa seimbang di tengah paksi menegak!
                   width: "100%",
                   gap: "30px",
                   padding: "25px",
@@ -108,12 +107,11 @@ export default function StartupProject() {
                 }}
               >
                 
-                {/* 📝 SISI TEKS: Ditentukan susunan ordernya secara dinamik berdasarkan indeks nombor kotak */}
+                {/* 📝 SISI TEKS */}
                 <div style={{ 
                   width: "100%", 
                   textAlign: "left", 
                   boxSizing: "border-box",
-                  // 🧠 LOGIK SAKTI: Kotak genap teks duduk kiri (order 1), kotak ganjil teks duduk kanan (order 2) dekat laptop!
                   order: window.innerWidth > 768 ? (isEven ? 1 : 2) : 1 
                 }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "15px", marginBottom: "15px" }}>
@@ -144,15 +142,15 @@ export default function StartupProject() {
                   </ul>
                 </div>
 
-                {/* 🖼️ SISI GAMBAR: Susunan order terbalik dengan teks bagi menghasilkan corak selang-seli rasmi laptop! */}
+                {/* 🖼️ SISI GAMBAR */}
                 <div style={{ 
                   display: "flex", 
                   flexDirection: "column", 
                   alignItems: "center", 
-                  justifyContent: "start", 
+                  justifyContent: "center", 
                   width: "100%", 
                   boxSizing: "border-box",
-                  order: window.innerWidth > 768 ? (isEven ? 2 : 1) : 2 // Auto-terbalikkan imej ke kiri/kanan kat laptop!
+                  order: window.innerWidth > 768 ? (isEven ? 2 : 1) : 2 
                 }}>
                   <img 
                     src={project.image} 
