@@ -49,12 +49,12 @@ export default function StartupProject() {
     {
       title: "Enterprise Network Traffic Forensics & Incident Isolation",
       points: [
-        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure.",
-        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP).",
-        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks."
+        "Intercepted and dissected deep network-layer packet captures via Wireshark to isolate live security incidents and credential exposure[cite: 1].",
+        "Reconstructed multi-stage TCP handshake sequences and TCP streams to investigate unencrypted plain-text communication vulnerabilities (FTP/HTTP)[cite: 1].",
+        "Analyzed Base64 encoded payloads within HTTP Basic Authentication headers to audit systemic weaknesses against eavesdropping attacks[cite: 1]."
       ],
       image: wiresharkImg,
-      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation",
+      caption: "Technical Exhibit 4: Live Plain-Text Credential Extraction & Packet Isolation[cite: 1]",
       imageSize: "480px"
     }
   ];
@@ -63,18 +63,18 @@ export default function StartupProject() {
     <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "40px 15px", boxSizing: "border-box" }}>
       <Fade bottom duration={1000}>
         
-        {/* HEADER UTAMA SEKSYEN */}
-        <div style={{ textAlign: "left", marginBottom: "35px", width: "100%" }}>
-          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", marginBottom: "10px", marginTop: 0 }}>
+        {/* HEADER UTAMA SEKSYEN - DIBAIKI AGAR TIDAK BERTINDIH */}
+        <div style={{ textAlign: "left", marginBottom: "40px", width: "100%" }}>
+          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", margin: "0 0 15px 0", lineHeight: "1.2" }}>
             Academic & Core Capstone Projects
           </h2>
-          <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b", margin: 0 }}>
+          <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b", marginTop: "10px", lineHeight: "1.5" }}>
             Tangible implementation of secure communication protocols, digital forensics, and network defense validation.
           </p>
         </div>
 
-        {/* LIST PROJEK SECARA ROW BERPERINGKAT (KUNCI MATI GAYA KOTAK DI SINI) */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "35px", width: "100%" }}>
+        {/* LIST PROJEK SECARA ROW BERPERINGKAT */}
+        <div className="projects-showcase-container" style={{ display: "flex", flexDirection: "column", gap: "40px", width: "100%" }}>
           {academicProjects.map((project, index) => {
             const isEven = index % 2 === 0;
             
@@ -89,8 +89,8 @@ export default function StartupProject() {
                   alignItems: "center",
                   justifyContent: "space-between",
                   width: "100%",
-                  gap: "30px",
-                  padding: "25px",
+                  gap: "30px", 
+                  padding: "30px",
                   background: isDark ? "#171c28" : "#ffffff",
                   borderRadius: "14px", 
                   border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`, 
@@ -109,10 +109,9 @@ export default function StartupProject() {
                 }}
               >
                 
-                {/* TIMAL HURAIAN TEKS PROJEK */}
-                <div style={{ flex: "1 1 450px", minWidth: "0", textAlign: "left", boxSizing: "border-box" }}>
+                {/* TIMAL HURAIAN TEKS PROJEK - DISET DINAMIK UNTUK LAPTOP & PHONE */}
+                <div style={{ flex: "1 1 500px", minWidth: "280px", textAlign: "left", boxSizing: "border-box" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "15px", marginBottom: "15px" }}>
-                    {/* BADGE01 DIKUNCI MATI SUPAYA TAK KEMEK DAN KELUAR MENEGAK */}
                     <span style={{ 
                       padding: "5px 10px", 
                       background: "rgba(13, 148, 136, 0.15)", 
@@ -131,7 +130,7 @@ export default function StartupProject() {
                     </h3>
                   </div>
                   <div style={{ height: "2px", background: "#0d9488", width: "50px", marginBottom: "20px" }}></div>
-                  <ul style={{ paddingLeft: "18px", margin: 0 }}>
+                  <ul style={{ paddingLeft: "18px", margin: "0 0 10px 0" }}>
                     {project.points.map((point, i) => (
                       <li key={i} style={{ fontSize: "0.95rem", color: isDark ? "#cbd5e1" : "#475569", lineHeight: "1.6", marginBottom: "10px", listStyleType: "square" }}>
                         {point}
@@ -140,8 +139,17 @@ export default function StartupProject() {
                   </ul>
                 </div>
 
-                {/* TIMAL GAMBAR: DIKUNCI MATI RESPONSIF TANPA OVERFLOW */}
-                <div style={{ flex: "1 1 350px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", boxSizing: "border-box" }}>
+                {/* TIMAL GAMBAR - DISET DINAMIK MEMATIKAN GAP PADA PHONE */}
+                <div style={{ 
+                  flex: "1 1 380px", 
+                  minWidth: "280px",
+                  display: "flex", 
+                  flexDirection: "column", 
+                  alignItems: "center", 
+                  justifyContent: "center", 
+                  width: "100%", 
+                  boxSizing: "border-box"
+                }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
@@ -157,7 +165,7 @@ export default function StartupProject() {
                     }} 
                   />
                   <span style={{ display: "block", marginTop: "12px", fontSize: "0.8rem", color: "#64748b", fontStyle: "italic", textAlign: "center", width: "100%" }}>
-                    {project.caption}
+                    {project.caption}[cite: 1]
                   </span>
                 </div>
 
