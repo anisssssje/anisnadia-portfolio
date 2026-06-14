@@ -73,7 +73,9 @@ const LeadershipExperience = () => {
 
   return (
     <div style={{ width: "100%", padding: "10px 0" }}>
-      
+      {/* 🚀 SUNTIKAN ANIMASI POPUP: Kasih masuk Fade bottom duration 1000 sama macam tab lain! */}
+      <Fade bottom duration={1000}>
+
       {/* HEADER SUB-SECTION 4 */}
       <div style={{ marginBottom: "40px", textAlign: "left" }}>
         <h2 style={{ fontSize: "2.5rem", fontWeight: "700", color: "#0d9488", margin: "0 0 10px 0", lineHeight: "1.2" }}>
@@ -160,6 +162,7 @@ const LeadershipExperience = () => {
           </div>
         ))} {/* <--- ✅ Penutup pemetaan map() */}
       </div>
+    </Fade>
     </div>
   );
 };
