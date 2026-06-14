@@ -7,7 +7,7 @@ import StyleContext from "../../contexts/StyleContext";
 import iotImg from "../../assets/images/project-iot.png";
 import stegoImg from "../../assets/images/project-stego.png";
 import vunImg from "../../assets/images/project-vun.png";
-import wiresharkImg from "../../assets/images/project-wireshark.png"; // Gambar FTP Credentials Wireshark
+import wiresharkImg from "../../assets/images/project-wireshark.png";
 
 export default function StartupProject() {
   const { isDark } = useContext(StyleContext);
@@ -56,74 +56,61 @@ export default function StartupProject() {
   ];
 
   return (
-    <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "20px 0", boxSizing: "border-box" }}>
+    <div className="academic-projects-main" id="academic-projects">
       <Fade bottom duration={1000}>
         
         {/* HEADER UTAMA SEKSYEN */}
-        <div className="projects-section-header" style={{ textAlign: "left", marginBottom: "40px" }}>
-          <h2 className={isDark ? "dark-mode" : ""} style={{ fontSize: "calc(1.8rem + 1vw)", fontWeight: "700", color: "#0d9488", marginBottom: "10px" }}>
-            Academic & Core Capstone Projects
-          </h2>
-          <p className={isDark ? "dark-sub" : ""} style={{ fontSize: "1rem", color: "#64748b" }}>
+        <div className="projects-section-header">
+          <h2 className={isDark ? "dark-mode" : ""}>Academic & Core Capstone Projects</h2>
+          <p className={isDark ? "dark-sub" : ""}>
             Tangible implementation of secure communication protocols, digital forensics, and network defense validation.
           </p>
         </div>
 
-        {/* LIST PROJEK SECARA ROW BERPERINGKAT (FLEXBOX AUTO-CENTER & NO FRAME) */}
-        <div className="projects-showcase-container" style={{ display: "flex", flexDirection: "column", gap: "60px", width: "100%" }}>
+        {/* LIST PROJEK SECARA ROW BERPERINGKAT */}
+        <div className="projects-showcase-container">
           {academicProjects.map((project, index) => {
             const isEven = index % 2 === 0;
             
             return (
               <div 
                 key={index} 
-                style={{ 
-                  display: "flex",
-                  flexDirection: isEven ? "row" : "row-reverse",
-                  flexWrap: "wrap", // Auto-pecah baris menegak jika skrin phone sempit
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  width: "100%",
-                  gap: "30px",
-                  padding: "20px",
-                  background: isDark ? "#171c28" : "#ffffff",
-                  borderRadius: "12px",
-                  border: `1px solid ${isDark ? "#334155" : "#e2e8f0"}`,
-                  boxSizing: "border-box"
-                }}
+                className={`project-fullscreen-row ${isEven ? "normal-row" : "reverse-row"} ${isDark ? "dark" : ""}`}
+                style={{ marginBottom: "40px" }} // Mengurangkan gap besar di phone
               >
                 
-                {/* TEKS PENERANGAN (FLEKSIBEL SEBELAH SISI) */}
-                <div style={{ flex: "1 1 450px", minWidth: "0", textAlign: "left", boxSizing: "border-box" }}>
-                  <h3 style={{ fontSize: "1.4rem", fontWeight: "700", color: "#0d9488", margin: "0 0 15px 0" }}>
-                    <span style={{ padding: "4px 8px", background: "rgba(13, 148, 136, 0.1)", borderRadius: "6px", marginRight: "10px", fontSize: "1.1rem" }}>0{index + 1}</span> 
-                    {project.title}
+                {/* LALUAN KIRI/KANAN: HURAIAN TEKS PROJEK */}
+                <div className="project-text-side">
+                  <h3 className="project-row-title" style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
+                    <span className="project-index-badge" style={{ display: "inline-block", minWidth: "35px", textAlign: "center" }}>
+                      0{index + 1}
+                    </span> 
+                    <span style={{ lineHeight: "1.3" }}>{project.title}</span>
                   </h3>
-                  <div style={{ height: "2px", background: "#0d9488", width: "60px", marginBottom: "20px" }}></div>
-                  <ul style={{ paddingLeft: "18px", margin: 0 }}>
+                  <div className="project-row-divider"></div>
+                  <ul className="project-row-points">
                     {project.points.map((point, i) => (
-                      <li key={i} style={{ fontSize: "0.98rem", color: isDark ? "#cbd5e1" : "#475569", lineHeight: "1.6", marginBottom: "10px", listStyleType: "square" }}>
-                        {point}
-                      </li>
+                      <li key={i}>{point}</li>
                     ))}
                   </ul>
                 </div>
 
-                {/* IMMEJ BERSIH TANPA FRAME (AUTO RE-SIZE DAN CENTERED) */}
-                <div style={{ flex: "1 1 400px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", boxSizing: "border-box" }}>
+                {/* LALUAN KANAN/KIRI: GAMBAR CLEAN TANPA FRAME ASAL (KECIL SIKIT & AUTO CENTER) */}
+                <div className="project-image-side" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     style={{ 
                       width: "100%", 
-                      maxWidth: "550px", 
+                      maxWidth: "440px", // Ditukar dari 550px ke 440px supaya imej IoT tak terlalu besar and gergasi!
                       height: "auto", 
                       borderRadius: "8px", 
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                      display: "block"
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                      display: "block",
+                      margin: "0 auto"
                     }} 
                   />
-                  <span style={{ display: "block", marginTop: "12px", fontSize: "0.82rem", color: "#64748b", fontStyle: "italic", textAlign: "center" }}>
+                  <span className="project-showcase-caption" style={{ display: "block", marginTop: "10px", textAlign: "center" }}>
                     {project.caption}
                   </span>
                 </div>
