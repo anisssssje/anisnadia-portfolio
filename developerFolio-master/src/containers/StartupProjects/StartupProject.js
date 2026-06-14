@@ -60,7 +60,7 @@ export default function StartupProject() {
   ];
 
   return (
-  <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "90px 15px 40px 15px", boxSizing: "border-box" }}>
+  <div className="academic-projects-main" id="academic-projects" style={{ width: "100%", padding: "10px 15px", boxSizing: "border-box" }}>
       <Fade bottom duration={1000}>
         
         {/* HEADER UTAMA SEKSYEN */}
