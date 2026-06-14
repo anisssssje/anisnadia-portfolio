@@ -69,7 +69,7 @@ export default function StartupProject() {
           </p>
         </div>
 
-        {/* LIST PROJEK SECARA ROW BERPERINGKAT (MATIKAN KELAS KOTAK LAMA KANTOI GAP) */}
+        {/* LIST PROJEK SECARA ROW BERPERINGKAT */}
         <div style={{ display: "flex", flexDirection: "column", gap: "30px", width: "100%" }}>
           {academicProjects.map((project, index) => {
             const isEven = index % 2 === 0;
@@ -93,7 +93,6 @@ export default function StartupProject() {
                   transition: "all 0.3s ease-in-out",
                   cursor: "pointer"
                 }}
-                // ✨ HOVER POPUP EFFECT YANG KEKAL BERFUNGSI MANTAP
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-6px)";
                   e.currentTarget.style.boxShadow = "0 15px 30px rgba(0, 0, 0, 0.15)";
@@ -122,21 +121,20 @@ export default function StartupProject() {
                   </ul>
                 </div>
 
-                {/* TIMAL GAMBAR: DIBAIKI KETINGGIAN & LEBAR SUPAYA GAMBAR WIRESHARK TAK BESAR/TERPOTONG */}
+                {/* TIMAL GAMBAR: DIBAIKI (SAMA RATA BESAR MACAM KOTAK 3 & NO BACKGROUND FRAME) */}
                 <div style={{ flex: "1 1 350px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", boxSizing: "border-box" }}>
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     style={{ 
                       width: "100%", 
-                      maxWidth: "420px", // Diturunkan sikit dari 440px supaya ngam and tak gergasi sangat
-                      maxHeight: "260px", // DIKUNCI KETINGGIAN MAKSIMUM SUPAYA GAMBAR 4 TAK OVERFLOW KELUAR
-                      objectFit: "contain", // Paksa gambar fit dalam acuan tanpa terpotong
+                      maxWidth: "480px", // Ditambah saiz lebar sikit supaya kotak 2 and 4 gempak and besar
+                      height: "auto", // Biar dia auto-scale ikut nisbah gambar asal tanpa kemek
+                      objectFit: "cover", // Paksa dia penuh and fit macam kotak 3
                       borderRadius: "6px", 
-                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
                       display: "block",
-                      margin: "0 auto",
-                      background: isDark ? "#0f141c" : "#f8fafc" // Letak bg sikit belakang gambar kalau gambar tu transparent
+                      margin: "0 auto"
                     }} 
                   />
                   <span style={{ display: "block", marginTop: "10px", fontSize: "0.8rem", color: "#64748b", fontStyle: "italic", textAlign: "center" }}>
