@@ -218,9 +218,9 @@ const EvidenceOfLearning = ({ isDark }) => {
 // 🌐 KOMPONEN BACKGROUND CYBER CYBER
 // ==========================================
 const CyberSecurityBackground = ({ isDark }) => {
-  const nodeColor = isDark ? "rgba(13, 148, 136, 0.45)" : "rgba(71, 85, 105, 0.4)";
-  const ipTextColor = isDark ? "rgba(13, 148, 136, 0.5)" : "rgba(71, 85, 105, 0.55)";
-  const binaryColor = isDark ? "rgba(13, 148, 136, 0.25)" : "rgba(71, 85, 105, 0.3)";
+  const nodeColor = isDark ? "rgba(13, 148, 136, 0.12)" : "rgba(71, 85, 105, 0.1)";
+const ipTextColor = isDark ? "rgba(13, 148, 136, 0.15)" : "rgba(71, 85, 105, 0.12)";
+const binaryColor = isDark ? "rgba(13, 148, 136, 0.06)" : "rgba(71, 85, 105, 0.05)";
 
   const binaryStreams = [
     { top: "8%", left: "15%", text: "01011001" },
